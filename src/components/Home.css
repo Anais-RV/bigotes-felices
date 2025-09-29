@@ -1,0 +1,7 @@
+.imgSlider {
+    display: block;
+    margin: 1.25rem auto;
+    max-width: 6.25rem;
+    width: 100%;
+    border-radius: 0.75rem;
+}

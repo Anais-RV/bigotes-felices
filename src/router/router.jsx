@@ -1,17 +1,16 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
+import HomePage from "../pages/Home/HomePage.jsx";
 import AdoptPage from "../pages/Adopt/AdoptPage.jsx";
 import FavoritesPage from "../pages/Favorites/FavoritesPage.jsx";
-import HomePage from "../pages/Home/HomePage.jsx";
-import Home from "../components/Home";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home /> // Home -> Components
+    element: <HomePage />
   },
   {
-    path: "/home",
-    element: <HomePage /> // HomePage -> Pages
+    path: "/home",              // 👈 alias
+    element: <Navigate to="/" replace />
   },
   {
     path: "/adopt",
@@ -21,4 +20,4 @@ export const router = createBrowserRouter([
     path: "/favorites",
     element: <FavoritesPage />
   }
-])
+]);

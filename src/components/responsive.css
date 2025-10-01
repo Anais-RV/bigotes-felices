@@ -1,0 +1,30 @@
+/* Responsividad */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Accesibilidad: foco visible */
+input:focus-visible,
+button:focus-visible {
+  outline: 3px solid #005fcc;
+  outline-offset: 2px;
+}
+
+/* Contraste AA */
+body {
+  color: #1a1a1a;
+  background-color: #ffffff;
+}
+
+button {
+  background-color: #005fcc;
+  color: #ffffff;
+}

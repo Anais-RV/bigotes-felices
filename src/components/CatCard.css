@@ -1,0 +1,79 @@
+.card-container {
+    width: 80%;
+    max-width: 18.75rem;
+  background: #E8EFE0;
+  border-radius: 1.56rem;
+  padding: 1.25rem;
+  box-shadow: inset 0 0.3rem 0.5rem rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  font-family: "Arial", sans-serif;
+}
+
+.card-header {
+  background: #B8D498;
+  color: #333;
+  font-weight: bold;
+  font-size: 0.9rem;
+  padding: 1rem 2.5rem;
+  border-radius: 0.625rem;
+  text-align: center;
+  box-shadow: 0.125rem 0.125rem 0.3rem rgba(0, 0, 0, 0.3);
+}
+
+.card-photo {
+  width: 100%;
+  height: 13.75rem;
+  background: #fff;
+  border-radius: 0.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #444;
+  font-size: 0.875rem;
+  position: relative;
+  box-shadow: inset 0 0.188rem 0.375rem rgba(0, 0, 0, 0.3);
+}
+
+.card-photo .heart {
+  position: absolute;
+  background: transparent;
+  bottom: 0.625rem;
+  right: 0.9rem;
+  font-size: 1.5rem;
+  color: #476930;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.card-photo .heart:hover {
+  transform: scale(1.2);
+}
+
+.card-buttons {
+  display: flex;
+  background: transparent;
+  justify-content: space-between;
+  width: 100%;
+  gap: 0.625rem;
+}
+
+.card-buttons button {
+    position:relative;
+  flex: 1;
+  padding: 0.625rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: #B8D498;
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0.125rem 0.125rem 0.3rem rgba(0, 0, 0, 0.3);
+  transition: background 0.2s ease;
+}
+
+.card-buttons button:hover {
+  background: #88aa6f;
+}

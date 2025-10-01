@@ -83,6 +83,13 @@ export const FavoritesProvider = ({children}) => {
     );
 };
 
-
+// Hook personalizado para usar el contexto
+export const useFavorites = () => {
+  const context = useContext(FavoritesContext);
+  if (!context) {
+    throw new Error('useFavorites debe ser usado dentro de FavoritesProvider');
+  }
+  return context;
+};
 
 export default FavoritesContext;

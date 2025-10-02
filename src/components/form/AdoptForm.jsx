@@ -1,8 +1,7 @@
-//He cogido el codigo de Formulario de David para hacer este archivo. Pero lo he hecho antes de que subió el código renovado entonces no sé si todavía es valido. Además el componente de AdoptForm de David está en src/pages/adopt-form y yo lo he puesto aquí
 import React, { useState, useRef } from 'react';
-import { submitAdoption } from '../services/adopteServices';
-import FieldError from './FieldError';
-import FormConfirm from './FormConfirm';
+import { submitAdoption } from '../../service/adopteServices';
+import FieldError from '../formErrors/FieldError';
+import FormConfirm from '../formErrors/FormConfirm';
 
 
 export default function AdoptForm() {

@@ -1,6 +1,12 @@
-import React, {useState} from 'react'
+import React, {useState, useReducer} from 'react'
 
-const AdoptForm = function () {
+const AdoptForm = () => {
+
+    const [fullname, setFullname] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
+    const [message, setMessage] = useState("");
+
   return (
     <form action="#" method='post'>
         <h1>Formulario de adopción</h1>

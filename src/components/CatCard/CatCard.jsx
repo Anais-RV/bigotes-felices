@@ -1,5 +1,4 @@
 
-
 export default function CatCard() {
   return (
     <div>

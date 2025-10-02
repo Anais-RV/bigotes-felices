@@ -1,5 +1,12 @@
+import CatCard from '../../components/CatCard/CatCard';
+
 const HomePage = () => {
-  return <p>Home Page</p>;
+  return (
+    <div>
+      <p>Home Page</p>
+      <CatCard />
+    </div>
+  );
 };
 
 export default HomePage;

@@ -2,10 +2,25 @@ import React, {useState} from 'react'
 
 const AdoptForm = () => {
 
+    //Estado local por campo
     const [fullname, setFullname] = useState("");
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [message, setMessage] = useState("");
+
+    //funcion handleSubmit para enviar el formulario
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log("Datos enviados: ", {fullname, email, phone, message});
+    }
+
+    //funcion handleReset para vacias los campos del formulario
+    const handleReset = () => {
+        setFullname("");
+        setEmail("");
+        setPhone("");
+        setMessage("");
+    }
 
   return (
     <form action="#" method='post'>

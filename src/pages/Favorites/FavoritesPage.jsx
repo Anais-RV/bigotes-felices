@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { readAllCats } from "../../service/catService";
-import { useEffect } from "react";
 
 const FavoritesPage = () => {
   

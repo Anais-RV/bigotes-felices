@@ -1,21 +1,18 @@
 import Heart from "../../icons/Heart";
+import HeartOutline from "../../icons/HeartOutline";
 import { useState } from "react";
 
-import React from 'react'
-
 const FavoriteButton = () => { 
-    const [isFav, setIsfav] = useState(false);
+    const [isFav, setIsFav] = useState(false);
+  
   return (
     <button
         className="favorite-button"
-        onClick={()=> setIsfav(!isFav)}
+        onClick={() => setIsFav(!isFav)}
         aria-pressed={isFav}
-        aria-label={isFav ? "Quitar de favoritos": "Añadir a favoritos"}
-        >
-        {isFav ? ()}
-
-
-
+        aria-label={isFav ? "Quitar de favoritos" : "Añadir a favoritos"}
+    >
+        {isFav ? <Heart /> : <HeartOutline />}
     </button>
   )
 }

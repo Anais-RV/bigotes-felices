@@ -1,4 +1,4 @@
-import AdoptForm from '../../components/form/AdoptForm';
+import AdoptForm from '../../components/AdoptForm/AdoptForm';
 
 const AdoptPage = () => {
   return (

@@ -2,7 +2,6 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 import HomePage from "../pages/Home/HomePage.jsx";
 import AdoptPage from "../pages/Adopt/AdoptPage.jsx";
 import FavoritesPage from "../pages/Favorites/FavoritesPage.jsx";
-import AdoptForm from "../pages/adopt-form/AdoptForm.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -20,9 +19,5 @@ export const router = createBrowserRouter([
   {
     path: "/favorites",
     element: <FavoritesPage />
-  },
-  {
-    path: "/adopt-form",
-    element: <AdoptForm />
   }
 ]);

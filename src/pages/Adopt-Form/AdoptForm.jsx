@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 
-const AdoptForm = () => {
+// Declaramos funcion AdoptForm con el prop onSubmit
+const AdoptForm = ({onSubmit}) => {
 
     //Estado local por campo
     const [fullname, setFullname] = useState("");
@@ -11,7 +12,15 @@ const AdoptForm = () => {
     //funcion handleSubmit para enviar el formulario
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Datos enviados: ", {fullname, email, phone, message});
+
+        const formData = { fullname, email, phone, message };
+
+        //Si se pasó onSubmit como prop, lo ejecuta
+        if (onSubmit) {
+            onSubmit(formData);
+        }
+
+        console.log("Datos enviados: ", formData);
     }
 
     //funcion handleReset para vacias los campos del formulario
@@ -23,28 +32,55 @@ const AdoptForm = () => {
     }
 
   return (
-    <form action="#" method='post'>
+    <form onSubmit={handleSubmit}>
         <h1>Formulario de adopción</h1>
         <fieldset>
-            <legend><label for="fullname">Nombre completo:</label></legend>
-            <input type='text' id='fullname' className='fullname' placeholder='Juan Cachopo' />
+            <legend><label htmlFor="fullname">Nombre completo:</label></legend>
+            <input 
+                type='text' 
+                id='fullname' 
+                className='fullname' 
+                value={fullname}
+                onChange={(e) => setFullname(e.target.value)}
+                placeholder='Juan Cachopo' 
+                required />
         </fieldset>
         <fieldset>
-            <legend><label for="email">Correo electrónico: </label></legend>
-            <input type='email' id='email' className="email" placeholder="juancachopo@gmail.com" />
+            <legend><label htmlFor="email">Correo electrónico: </label></legend>
+            <input 
+                type='email' 
+                id='email' 
+                className="email" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="juancachopo@gmail.com" 
+                required />
         </fieldset>
         <fieldset>
-            <legend><label for="phone">Teléfono: </label></legend>
-            <input type='text' id='phone' className='phone' placeholder='985123123' />
+            <legend><label htmlFor="phone">Teléfono: </label></legend>
+            <input 
+                type='text' 
+                id='phone' 
+                className='phone' 
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                placeholder='985123123' />
         </fieldset>
         <fieldset>
-            <legend><label for="message">Mensaje: </label></legend>
-            <textarea id='message' className='message' placeholder='Danos su opinión...'></textarea>
+            <legend><label htmlFor="message">Mensaje: </label></legend>
+            <textarea 
+                id='message' 
+                className='message' 
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                placeholder='Danos su opinión...'>
+
+                </textarea>
         </fieldset>
         <button type='submit' id="submit" className="submit">
             Enviar
         </button>
-        <button type='reset' id="reset" name="reset">
+        <button type='button' onClick={handleReset} id="reset" name="reset">
             Reiniciar
         </button> 
     </form>

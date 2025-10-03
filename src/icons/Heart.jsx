@@ -1,6 +1,6 @@
-export default function HeartFilled({ size = 24, color = "red" }) {
+ export default function HeartFilled({size = 24 , color = "rgba(88, 112, 62, 1)"}) {
   return (
-    <svg
+    <svg 
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}

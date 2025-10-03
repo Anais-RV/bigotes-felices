@@ -4,13 +4,14 @@ import './index.css'
 import Home from './components/Home'
 import FavoriteButton from './components/FavoriteButton/FavoriteButton'
 
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Home />
    
    
    
-   
+
     <FavoriteButton/>
   </StrictMode>,
 )

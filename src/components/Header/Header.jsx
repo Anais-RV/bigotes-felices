@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import './Header.css';
 
-export default function Header() {
+export default function Header({ slider, catCard }) {
   return (
     <>
       <header className="top-header">
@@ -36,8 +36,12 @@ export default function Header() {
 
       <div className="navbar">
         <div className="navbar-content">
-          <div className="slider-placeholder">Aquí irá el slider</div>
-          <div className="modal-box">Modal con contenido del slider</div>
+          <div className="slider-placeholder">
+            {slider || "Aquí irá el slider"}
+          </div>
+          <div className="modal-box">
+            {catCard || "Modal con contenido del slider"}
+          </div>
 
           <nav className="nav-actions">
             <NavLink to="/" className="nav-link">HOME</NavLink>

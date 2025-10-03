@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-image: url('./assets/imagenes/fondo.jpg'); /* ruta relativa desde tu CSS */
+  background-image: url('../../assets/images/fondo.jpg'); /* ruta corregida hacia src/assets/images */
   background-size: cover;       /* cubre toda la pantalla */
   background-position: center;  /* centrado */
   background-repeat: no-repeat; /* sin repetir */

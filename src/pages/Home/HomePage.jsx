@@ -1,10 +1,10 @@
-import HomeContent from '../../components/HomeContent';
-import CatCard from '../../components/CatCard/CatCard';
+import Header from '../../components/Header/Header';
 import Slider from '../../Slider/Slider';
+import CatCard from '../../components/CatCard/CatCard';
 
 const HomePage = () => {
   return (
-    <HomeContent 
+    <Header 
       slider={<Slider />}
       catCard={<CatCard />}
     />

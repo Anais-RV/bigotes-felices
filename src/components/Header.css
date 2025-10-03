@@ -1,10 +1,35 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('./assets/imagenes/fondo.jpg'); /* ruta relativa desde tu CSS */
+  background-size: cover;       /* cubre toda la pantalla */
+  background-position: center;  /* centrado */
+  background-repeat: no-repeat; /* sin repetir */
+  background-attachment: fixed; /* opcional: para que no se mueva al hacer scroll */
+}
+
+.top-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: #B8D498;
+  text-align: center;
+  padding: 10px 12px 18px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  box-shadow: 4px 4px 2px rgba(0,0,0,0.22);
+  border-radius: 0 0 32px 32px;
+}
+
 .navbar {
   width: 400px;
   height: 800px;
   margin: 32px auto;
   background: #B8D498;
   border-radius: 32px;
-  box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 10px 10px 3px rgba(0, 0, 0, 0.22);
   padding: 24px;
   box-sizing: border-box;
   display: flex;
@@ -67,19 +92,6 @@
   box-shadow: inset 0 14px 28px -14px #556741;
 }
 
-.top-header {
-  position: sticky; /* o fixed */
-  top: 0;
-  z-index: 10;
-  background: #fff;
-  width: 100%;
-  text-align: center;
-  padding: 10px 12px;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-  box-shadow: 0 2px 10px rgba(0,0,0,.08);
-}
-
 .modal-box {
   background: #ffffff;
   border-radius: 32px;
@@ -93,4 +105,23 @@
   text-align: center;
   font-weight: 600;
   box-shadow: inset 0 14px 28px -14px #556741;
+}
+
+.site-chrome {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: transform 0.28s ease;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.site-chrome.is-hidden {
+  transform: translateY(-100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-chrome {
+    transition: none;
+  }
 }

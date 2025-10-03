@@ -7,7 +7,7 @@ const FavoriteButton = () => {
   
   return (
     <button
-        className="favorite-button"
+        className="heart"
         onClick={() => setIsFav(!isFav)}
         aria-pressed={isFav}
         aria-label={isFav ? "Quitar de favoritos" : "Añadir a favoritos"}

@@ -1,4 +1,4 @@
-export default function HeartFilled({ size = 24, color = "red" }) {
+export default function HeartFilled({ size = 24, color = 'red' }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

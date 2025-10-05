@@ -37,10 +37,10 @@ export default function Header({ slider, catCard }) {
       <div className="navbar">
         <div className="navbar-content">
           <div className="slider-placeholder">
-            {slider || "Aquí irá el slider"}
+            {slider || 'Aquí irá el slider'}
           </div>
           <div className="modal-box">
-            {catCard || "Modal con contenido del slider"}
+            {catCard || 'Modal con contenido del slider'}
           </div>
 
           <nav className="nav-actions">

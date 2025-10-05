@@ -1,0 +1,29 @@
+/* FormConfirm.css - Estilos para mensaje de confirmación */
+
+.form-confirm {
+  padding: 1rem;
+  background-color: #d1fae5;
+  border-radius: 0.375rem;
+  margin: 1rem 0;
+}
+
+.form-confirm-message {
+  color: #065f46;
+  font-weight: 500;
+  margin: 0 0 0.5rem 0;
+}
+
+.form-confirm button {
+  margin-top: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  background-color: #059669;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.form-confirm button:hover {
+  background-color: #047857;
+}

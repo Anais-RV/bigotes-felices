@@ -1,16 +1,12 @@
-import React from 'react';
-
+import './FormConfirm.css';
 
 export default function FormConfirm({ onReset }) {
-return (
-<div role="alert" className="p-4 bg-green-100 rounded-md">
-<p className="text-green-800 font-medium">¡Formulario enviado con éxito!</p>
-<button
-onClick={onReset}
-className="mt-2 px-3 py-1 bg-green-600 text-white rounded"
->
+  return (
+    <div role="alert" className="form-confirm">
+      <p className="form-confirm-message">¡Formulario enviado con éxito!</p>
+      <button onClick={onReset}>
 Enviar otro
-</button>
-</div>
-);
+      </button>
+    </div>
+  );
 }

@@ -2,9 +2,9 @@
 import React from 'react';
 
 export default function PreviousButton({ prev }) {
-    return (
-        <button onClick={prev} aria-label="Anterior">
+  return (
+    <button onClick={prev} aria-label="Anterior">
             ←
-        </button>
-    );
+    </button>
+  );
 }

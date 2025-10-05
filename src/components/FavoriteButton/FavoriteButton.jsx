@@ -7,10 +7,10 @@ const FavoriteButton = () => {
   
   return (
     <button
-        className="heart"
-        onClick={() => setIsFav(!isFav)}
-        aria-pressed={isFav}
-        aria-label={isFav ? "Quitar de favoritos" : "Añadir a favoritos"}
+      className="heart"
+      onClick={() => setIsFav(!isFav)}
+      aria-pressed={isFav}
+      aria-label={isFav ? 'Quitar de favoritos' : 'Añadir a favoritos'}
     >
       {isFav ? <Heart /> : <HeartOutline />}
     </button>

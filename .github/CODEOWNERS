@@ -1,6 +1,3 @@
-.github/**        @Anais-RV @yeraldsb
-.github/workflows/**  @Anais-RV @yeraldsb
-
-# Code review requirements for main and dev branches
-# Note: Branch protection must be configured in GitHub Settings → Branches
-*  @Andreabcm
+.github/**        @Anais-RV @yeraldsb @Andreabcm
+.github/workflows/**  @Anais-RV @yeraldsb @Andreabcm
+*  @Anais-RV @yeraldsb @Andreabcm

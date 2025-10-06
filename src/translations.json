@@ -1,0 +1,33 @@
+{
+  "es": {
+    "Home": {
+      "title": "Inicio",
+      "welcome": "¡Bienvenido a Bigotes Felices!",
+      "description": "¡Descubre nuestros michis!"
+    },
+    "Favorites": {
+      "title": "Favoritos",
+      "empty": "Aún no tienes favoritos."
+    },
+    "Adopt": {
+      "title": "Adoptar",
+      "cta": "Inicia el proceso de adopción"
+    }
+  },
+  "en": {
+    "Home": {
+      "title": "Home",
+      "welcome": "Welcome to Bigotes Felices!",
+      "description": "Check out our kitties!!"
+    },
+    "Favorites": {
+      "title": "Favorites",
+      "empty": "You don't have any favorites yet."
+    },
+    "Adopt": {
+      "title": "Adopt",
+      "cta": "Start the adoption process"
+    }
+
+  }
+}

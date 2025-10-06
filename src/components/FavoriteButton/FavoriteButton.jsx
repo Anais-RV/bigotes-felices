@@ -2,9 +2,7 @@ import Heart from "../../icons/Heart";
 import HeartWhite from"../../icons/HeartWhite";
 import { useState } from "react";
 import style from "./FavoriteButton.module.css"
-
 import React from 'react'
-
 const FavoriteButton = () => { 
     const [isFav, setIsfav] = useState(false);
   return (
@@ -20,9 +18,7 @@ const FavoriteButton = () => {
 
 
 
-
     </button>
   )
 }
-
 export default FavoriteButton

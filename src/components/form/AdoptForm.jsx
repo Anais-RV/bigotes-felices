@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import { submitAdoption } from '../../service/adopteServices';
 import FieldError from '../FormErrors/FieldError';
 import FormConfirm from '../FormErrors/FormConfirm';
+import Button from '../Button/Button';
 import './AdoptForm.css';
 
 
@@ -151,6 +152,7 @@ Ocurrió un error al enviar. Intenta de nuevo.
         >
           {status === 'submitting' ? 'Enviando...' : 'Enviar'}
         </button>
+        <Button type="submit" disabled={status === 'submitting'} children={status === 'submitting' ? 'Enviando...' : 'Enviar'} />
 
         <button
           type="reset"

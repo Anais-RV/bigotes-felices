@@ -3,25 +3,27 @@ import { useFavorites } from '../../context/FavoritesContext';
 import CatCard from '../../components/CatCard/CatCard';
 
 const FavoritesPage = () => {
-  const { favoriteCats } = useFavorites();
+  const { favorites = [] } = useFavorites() || {}; // use 'favorites' from context, safe default
 
   return (
     <>
       <main>
         <section className="main__section--fav-cards">
-          {favoriteCats.length === 0 ? (
+          {favorites.length === 0 ? (
             <div className="empty-favorites">
               <h2>No tienes favoritos</h2>
               <p>¡Explora nuestros gatitos y añade algunos a tus favoritos!</p>
             </div>
           ) : (
-            favoriteCats.map((cat) => (
+            favorites.map((cat) => (
               <CatCard key={cat.id} cat={cat} />
             ))
           )}
         </section>
         <div className="div__btn--styling">
-          <button className="btn__btn--state-adopt-all">Adoptar</button>
+          <Link to="/adopt">
+            <button className="btn__btn--state-adopt-all">Adoptar</button>
+          </Link>
           <Link to="/">
             <button className="btn__btn--state-home-link">Home</button>
           </Link>

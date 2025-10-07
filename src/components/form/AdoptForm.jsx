@@ -146,20 +146,20 @@ Ocurrió un error al enviar. Intenta de nuevo.
 
 
       <div className="button-group">
-        <button
-          type="submit"
-          disabled={status === 'submitting'}
-        >
-          {status === 'submitting' ? 'Enviando...' : 'Enviar'}
-        </button>
-        <Button type="submit" disabled={status === 'submitting'} children={status === 'submitting' ? 'Enviando...' : 'Enviar'} />
+        {/** Button Sending... / Send */}
+        <Button 
+          type="submit" 
+          disabled={status === 'submitting'} >
+            {status === 'submitting' ? 'Enviando...' : 'Enviar'}
+        </Button>
 
-        <button
+        {/** Button Reset */}
+        <Button
           type="reset"
           onClick={() => setFormData({ fullname: '', email: '', phone: '', message: '' })}
         >
-Reiniciar
-        </button>
+          Reiniciar
+        </Button>
       </div>
     </form>
   );

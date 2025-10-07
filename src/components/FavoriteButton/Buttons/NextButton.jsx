@@ -8,7 +8,7 @@ export default function NextButton({ next }) {
 
   return (
   
-    <Button onClick={next} aria-label="Siguiente">
+    <Button onClick={next} ariaLabel="Siguiente">
        →
     </Button>
     

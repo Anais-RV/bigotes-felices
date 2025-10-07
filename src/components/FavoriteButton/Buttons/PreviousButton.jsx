@@ -8,7 +8,7 @@ export default function PreviousButton({ prev }) {
 
   return (
     
-    <Button onClick={prev} aria-label="Anterior">
+    <Button onClick={prev} ariaLabel="Anterior">
        ←
     </Button>
     

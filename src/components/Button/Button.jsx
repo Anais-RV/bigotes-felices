@@ -8,7 +8,9 @@ const Button = ({
     name,
     type = 'button', 
     disabled = false, 
-    children 
+    children,
+    ariaLabel,
+    ariaPressed
 }) => {
 
   return (
@@ -18,7 +20,9 @@ const Button = ({
       className={className}
       disabled={disabled}
       id={id}
-      name={name}>
+      name={name}
+      aria-label={ariaLabel}
+      aria-pressed={ariaPressed}>
 
         {children}
 

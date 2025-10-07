@@ -34,9 +34,9 @@ export default function Slider() {
       </div>
       <div className="slider-controls">
         {/** Button Previous */}
-        <Button onClick={prev} aria-label="Anterior">←</Button>
+        <Button onClick={prev} ariaLabel="Anterior">←</Button>
         {/** Button Next */}
-        <Button onClick={next} aria-label="Siguiente">→</Button>
+        <Button onClick={next} ariaLabel="Siguiente">→</Button>
       </div>
     </div>
   );

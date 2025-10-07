@@ -5,6 +5,7 @@ const Button = ({
     onClick, 
     className = '', 
     id, 
+    name,
     type = 'button', 
     disabled = false, 
     children 
@@ -16,10 +17,11 @@ const Button = ({
       onClick={onClick}
       className={className}
       disabled={disabled}
-      id={id}>
+      id={id}
+      name={name}>
 
         {children}
-        
+
     </button>
   )
 };

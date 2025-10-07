@@ -78,15 +78,14 @@ const AdoptForm = ({onSubmit}) => {
 
         </textarea>
       </fieldset>
-      <button type='submit' id="submit" className="submit">
-            Enviar
-      </button>
+      {/** Boton Enviar */}
       <Button type="submit" id="submit" className="submit">
         Enviar
       </Button>
-      <button type='button' onClick={handleReset} id="reset" name="reset">
-            Reiniciar
-      </button> 
+      {/** Boton Reiniciar */}
+      <Button type='button' onClick={handleReset} id="reset" name="reset">
+        Reiniciar
+      </Button>
     </form>
   );
 };

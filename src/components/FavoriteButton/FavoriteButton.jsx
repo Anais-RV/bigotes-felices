@@ -14,6 +14,7 @@ const FavoriteButton = () => {
     >
       {isFav ? <Heart /> : <HeartOutline />}
     </button>
+    
   );
 };
 

@@ -16,7 +16,6 @@ export default function CatCard({className, catId}) {
           <Button>Favoritos</Button>
           {/** Button Adoptar */}
           <Button>Adoptar</Button>
-          
         </div>
       </div>
     </section>

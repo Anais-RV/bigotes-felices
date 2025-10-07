@@ -8,7 +8,7 @@ const FavoritesPage = () => {
   return (
     <>
       <main>
-        <p>Favorites Page</p>
+        <h1>Favorites Page</h1>
         <section className="main__section--fav-cards">
           {favorites.length === 0 ? (
             <div className="empty-favorites">

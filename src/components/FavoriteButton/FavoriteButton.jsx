@@ -6,9 +6,10 @@ import Button from '../Button/Button';
 const FavoriteButton = () => { 
   const [isFav, setIsFav] = useState(false);
   
+  {/** Button Heart */}
+
   return (
-    <>
-    {/** Button Heart */}
+    
     <Button 
       className="heart" 
       onClick={() => setIsFav(!isFav)}
@@ -17,7 +18,7 @@ const FavoriteButton = () => {
       {isFav ? <Heart /> : <HeartOutline />}
       Pepe
     </Button>
-    </>
+    
   );
 };
 

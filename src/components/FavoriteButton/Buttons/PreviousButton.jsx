@@ -1,10 +1,16 @@
 // PreviousButton.jsx
 import React from 'react';
+import Button from '../../Button/Button';
 
 export default function PreviousButton({ prev }) {
+
+  {/** Button Previous */}
+
   return (
-    <button onClick={prev} aria-label="Anterior">
-            ←
-    </button>
+    
+    <Button onClick={prev} aria-label="Anterior">
+       ←
+    </Button>
+    
   );
 }

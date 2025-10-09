@@ -1,5 +1,5 @@
-import HeartOutline from "../../icons/HeartWhite";
-import HeartWhite from"../../icons/HeartOutline";
+import HeartWhite from "../../icons/HeartWhite";
+import HeartOutline from"../../icons/HeartOutline";
 import { useState } from "react";
 import style from "./FavoriteButton.module.css"
 import React from 'react'

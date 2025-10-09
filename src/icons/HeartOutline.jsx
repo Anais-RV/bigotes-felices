@@ -1,4 +1,4 @@
-export default function HeartOutline({ size = 24, color = "#666" }) {
+export default function HeartOutline({ size = 24, color = "#dfebddff" }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -8,6 +8,7 @@ export default function HeartOutline({ size = 24, color = "#666" }) {
       stroke={color}
       strokeWidth="2"
       viewBox="0 0 24 24"
+      
     >
       <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 
         8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 

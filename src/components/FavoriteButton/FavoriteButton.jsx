@@ -1,8 +1,8 @@
-import Heart from "../../icons/Heart";
 import HeartWhite from"../../icons/HeartWhite";
+import HeartOutline from "../../icons/HeartOutline";
 import { useState } from "react";
 import style from "./FavoriteButton.module.css"
-import React from 'react'
+
 const FavoriteButton = () => { 
     const [isFav, setIsFav] = useState(false);
   return (
@@ -14,7 +14,7 @@ const FavoriteButton = () => {
        title={ "Añadir a favoritos" }>
 
         
-     {isFav ? <Heart />:<HeartWhite  />
+     {isFav ? <HeartWhite color="#65b45e" />: <HeartOutline />
      } 
     
 

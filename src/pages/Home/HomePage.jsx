@@ -22,10 +22,11 @@ const HomePage = () => {
         //Añadimos Promise para que la duración de la carga sea de 3 segundos
         await new Promise(resolve => setTimeout(resolve, 3000)); 
 
+        //Probar con uno de estos responses:
         //Simularemos una respuesta exitosa
-        //const response = "success";
+        const response = "success";
         //Simularemos una respuesta de error
-        const response = "error";
+        //const response = "error";
 
         if (response === "error") {
           throw new Error("No se pudo cargar..."); //Si hay error, lo lanzamos
@@ -47,7 +48,7 @@ const HomePage = () => {
   if(loading) {
     return(
       <div className="loading">
-        <p>Cargando...</p>
+        <h2>Cargando...</h2>
         <p>Por favor, espere un momento</p>
       </div>
     );
@@ -57,7 +58,7 @@ const HomePage = () => {
   if(error) {
     return(
       <div className='error'>
-        <p>Vaya por dios...</p>
+        <h2>Error</h2>
         <p>Algo salió mal</p>
       </div>
     );

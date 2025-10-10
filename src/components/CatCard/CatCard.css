@@ -1,10 +1,16 @@
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .card-container {
-    width: 80%;
-    max-width: 18.75rem;
+  width: 80%;
+  max-width: 420px;
   background: #E8EFE0;
   border-radius: 1.56rem;
   padding: 1.25rem;
-  box-shadow: inset 0 0.3rem 0.5rem rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 1rem 0.5rem -0.5rem #8CA66E;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,6 +24,8 @@
   font-weight: bold;
   font-size: 0.9rem;
   padding: 1rem 2.5rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0;
   border-radius: 0.625rem;
   text-align: center;
   box-shadow: 0.125rem 0.125rem 0.3rem rgba(0, 0, 0, 0.3);
@@ -28,6 +36,7 @@
   height: 13.75rem;
   background: #fff;
   border-radius: 0.9rem;
+  margin-top: 0.4rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,10 +51,16 @@
   background: transparent;
   bottom: 0.625rem;
   right: 0.9rem;
-  font-size: 1.5rem;
-  color: #476930;
   cursor: pointer;
   transition: transform 0.2s ease;
+  border: none;   
+  outline: none;  
+  padding: 0;
+}
+
+.card-photo .heart svg {
+  width: 2.5rem;   
+  height: 2.5rem;
 }
 
 .card-photo .heart:hover {

@@ -1,11 +1,13 @@
+import Header from '../../components/Header/Header';
+import Slider from '../../Slider/Slider';
 import CatCard from '../../components/CatCard/CatCard';
 
 const HomePage = () => {
   return (
-    <div>
-      <p>Home Page</p>
-      <CatCard />
-    </div>
+    <Header 
+      slider={<Slider />}
+      catCard={<CatCard />}
+    />
   );
 };
 

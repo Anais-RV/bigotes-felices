@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import { submitAdoption } from '../../service/adopteServices';
 import FieldError from '../FormErrors/FieldError';
 import FormConfirm from '../FormErrors/FormConfirm';
+import Button from '../Button/Button';
 import './AdoptForm.css';
 
 
@@ -145,19 +146,20 @@ Ocurrió un error al enviar. Intenta de nuevo.
 
 
       <div className="button-group">
-        <button
-          type="submit"
-          disabled={status === 'submitting'}
-        >
-          {status === 'submitting' ? 'Enviando...' : 'Enviar'}
-        </button>
+        {/** Button Sending... / Send */}
+        <Button 
+          type="submit" 
+          disabled={status === 'submitting'} >
+            {status === 'submitting' ? 'Enviando...' : 'Enviar'}
+        </Button>
 
-        <button
+        {/** Button Reset */}
+        <Button
           type="reset"
           onClick={() => setFormData({ fullname: '', email: '', phone: '', message: '' })}
         >
-Reiniciar
-        </button>
+          Reiniciar
+        </Button>
       </div>
     </form>
   );

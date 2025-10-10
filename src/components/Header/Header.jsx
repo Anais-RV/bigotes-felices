@@ -49,7 +49,7 @@ export default function Header({ slider, catCard }) {
             {catCard || 'Modal con contenido del slider'}
           </div>
 
-          <nav className='nav-actions'><br />
+          <nav className='nav-actions'>
             <NavLink to='/' className='nav-link'>HOME</NavLink>
             <NavLink to='/favorites' className='nav-link'>FAVORITOS</NavLink>
             <NavLink to='/adopt' className='nav-link'>ADOPTAR</NavLink>

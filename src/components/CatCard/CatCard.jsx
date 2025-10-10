@@ -16,7 +16,9 @@ export default function CatCard({ className, name, age, imgUrl, description, cat
         
         <div className="card-front">
           <p className="card-header">{name}/{age}</p>
-          <div className="card-photo">{imgUrl}</div>
+          <div className="card-photo">
+            <img src={imgUrl} alt={name} className="cat-image" />
+          </div>
 
           <div className="cat-actions">
             <FavoriteButton className={className} catId={catId} />

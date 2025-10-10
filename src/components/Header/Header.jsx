@@ -27,8 +27,7 @@ export default function Header({ slider, catCard }) {
       <header className='top-header' style={{ '--header-size': `${pgSize}px` }}>
         <span className='brand'>Bigotes Felices</span>
         <div className='header-actions'>
-          <button
-            className='pumagato-toggle'
+          <button className='prueba-rusa'
             onClick={toggleTheme}
             aria-pressed={isDark}
             aria-label={isDark ? 'Desactivar modo oscuro' : 'Activar modo oscuro'}

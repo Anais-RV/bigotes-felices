@@ -3,10 +3,11 @@ padding: 0;
 margin:0;
 block-size: border-box;
 }
+
 .favoriteButton{
 
 border: none;
-background-color: rgba(232, 239, 224, 1);
+background-color: transparent;
 padding: 0;
 margin:0;
 

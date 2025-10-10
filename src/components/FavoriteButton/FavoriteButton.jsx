@@ -14,7 +14,7 @@ const FavoriteButton = () => {
        title={ "Añadir a favoritos" }>
 
         
-     {isFav ? <HeartWhite color="#65b45e" />: <HeartOutline />
+     {isFav ? <HeartWhite color="#58703E" />: <HeartOutline />
      } 
     
 

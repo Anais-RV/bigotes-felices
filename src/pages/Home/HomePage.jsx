@@ -19,8 +19,8 @@ const HomePage = () => {
         setLoading(true); //Decimos: está cargando
         setError(null); //Limpiamos los errores anteriores
 
-        //Añadimos Promise para que la duración de la carga sea de 3 segundos
-        await new Promise(resolve => setTimeout(resolve, 3000)); 
+        //Añadimos Promise para que la duración de la carga sea de 4 segundos
+        await new Promise(resolve => setTimeout(resolve, 4000)); 
 
         //Probar con uno de estos responses:
         //Simularemos una respuesta exitosa

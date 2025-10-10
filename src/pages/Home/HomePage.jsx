@@ -7,7 +7,6 @@ const HomePage = () => {
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [data, setData] = useState(null);
 
   /**useEffect --> lo que pasa cuando carga la página */
   useEffect(() => {
@@ -16,6 +15,20 @@ const HomePage = () => {
       // Usamos try/catch para manejar errores
       try {
         
+        setLoading(true); //Decimos: está cargando
+        setError(null); //Limpiamos los errores anteriores
+
+        //Añadimos Promise para que la duración de la carga sea de 3 segundos
+        await new Promise(resolve => setTimeout(resolve, 3000)); 
+
+        //Simularemos una respuesta exitosa
+        const response = "success";
+
+        if (response === "error") {
+          throw new Error("No se pudo cargar..."); //Si hay error, lo lanzamos
+        }
+
+
       } catch (error) {
         setError(error.message); //Si algo falla, almacenamos el error
       } finally {

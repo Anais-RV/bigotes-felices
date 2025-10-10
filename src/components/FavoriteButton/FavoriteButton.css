@@ -1,6 +1,6 @@
 .favorite-button {
   box-sizing: border-box;
-  background: rgba(0,0,0,.3);
+  background: #8CA66E;
   border: none;
   border-radius: 50%;
   width: 40px;
@@ -16,7 +16,7 @@
 }
 
 .favorite-button:hover {
-  background: rgba(0,0,0,.5);
+  background: #7a945e;
   transform: scale(1.1);
   box-shadow: 0 4px 12px rgba(0,0,0,.2);
 }
@@ -26,8 +26,8 @@
 }
 
 .favorite-button--active {
-  background: rgba(255,255,255,.9);
-  color: #e74c3c;
+  background: #4f6b2a;
+  color: #fff;
 }
 
 .favorite-button svg {

@@ -1,11 +1,15 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import { RouterProvider } from "react-router-dom";
-import { router } from "./router/router";
-import "./index.css";
 
-createRoot(document.getElementById("root")).render(
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App.jsx';
+import { FavoritesProvider } from './context/FavoritesContext';
+import './index.css';
+
+
+createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <FavoritesProvider>
+      <App />
+    </FavoritesProvider>
   </StrictMode>
 );

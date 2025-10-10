@@ -11,7 +11,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchCats = async () => {
       try {
-        const catsData = await readAllCats(10);
+        const catsData = await readAllCats(10); // Cargar 10 gatos
         setCats(catsData);
         setLoading(false);
       } catch (error) {
@@ -23,7 +23,7 @@ const HomePage = () => {
     fetchCats();
   }, []);
 
-  const currentCat = cats[0];
+  const currentCat = cats[0]; // Mostrar el primer gato por ahora
 
   return (
     <Header 
@@ -34,7 +34,7 @@ const HomePage = () => {
         ) : currentCat ? (
           <CatCard 
             name={currentCat.breeds?.[0]?.name || 'Gato Misterioso'}
-            age={Math.floor(Math.random() * 10) + 1}
+            age={Math.floor(Math.random() * 10) + 1} // Edad aleatoria ya que la API no proporciona edad
             imgUrl={currentCat.url}
             description={currentCat.breeds?.[0]?.description || 'Un gato adorable esperando un hogar lleno de amor.'}
             catId={currentCat.id}

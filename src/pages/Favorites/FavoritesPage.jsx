@@ -17,7 +17,13 @@ const FavoritesPage = () => {
             </div>
           ) : (
             favorites.map((cat) => (
-              <CatCard key={cat.id} cat={cat} />
+              <CatCard 
+                key={cat.catId} 
+                name={cat.name}
+                age={cat.age} 
+                imgUrl={cat.imgUrl}
+                description={cat.description}
+              />
             ))
           )}
         </section>

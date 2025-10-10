@@ -13,9 +13,19 @@ const HomePage = () => {
   useEffect(() => {
     /**Cuando la página se abre por primera vez, se ejecuta la función fetchData() */
     const fetchData = async () => {
-      
+      // Usamos try/catch para manejar errores
+      try {
+        
+      } catch (error) {
+        setError(error.message); //Si algo falla, almacenamos el error
+      } finally {
+        setLoading(false); //Le decimos que ya no está cargando
+      }
     }
-  });
+    // Llamamos a la funcion fetchData
+    fetchData();
+    // El [] vacío significa que el useEffect solo carga UNA VEZ al principio
+  }, []);
 
   return (
     <Header 

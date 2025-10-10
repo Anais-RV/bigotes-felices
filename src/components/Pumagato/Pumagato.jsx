@@ -46,7 +46,7 @@ export default function Pumagato({
         '--pg-speed': safeSpeed,
         ...style,
       }}
-      role="button"
+      role='button'
       tabIndex={0}
       aria-pressed={mode === 'moon'}
       aria-label={title}
@@ -54,53 +54,53 @@ export default function Pumagato({
       onKeyDown={onKeyDown}
       title={mode === 'cat' ? '¡Anochecer!' : '¡Amanecer!'}
     >
-      <svg className="pg-svg" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+      <svg className='pg-svg' viewBox='0 0 200 240' xmlns='http://www.w3.org/2000/svg'>
         <defs>
-          <radialGradient id="pgSheen" cx="50%" cy="35%" r="65%">
-            <stop offset="0%" stopColor="rgba(255,255,255,0.06)" />
-            <stop offset="100%" stopColor="rgba(255,255,255,0)" />
+          <radialGradient id='pgSheen' cx='50%' cy='35%' r='65%'>
+            <stop offset='0%' stopColor='rgba(255,255,255,0.06)' />
+            <stop offset='100%' stopColor='rgba(255,255,255,0)' />
           </radialGradient>
-          <mask id="pgCrescentMask">
-            <rect x="0" y="0" width="200" height="240" fill="black" />
-            <circle cx="110" cy="120" r="48" fill="white" />
-            <circle cx="128" cy="118" r="48" fill="black" />
+          <mask id='pgCrescentMask'>
+            <rect x='0' y='0' width='200' height='240' fill='black' />
+            <circle cx='110' cy='120' r='48' fill='white' />
+            <circle cx='128' cy='118' r='48' fill='black' />
           </mask>
-          <filter id="pgGlow" x="-30%" y="-30%" width="160%" height="160%">
-            <feGaussianBlur stdDeviation="6" result="b" />
+          <filter id='pgGlow' x='-30%' y='-30%' width='160%' height='160%'>
+            <feGaussianBlur stdDeviation='6' result='b' />
             <feComponentTransfer>
-              <feFuncA type="linear" slope="0.9" />
+              <feFuncA type='linear' slope='0.9' />
             </feComponentTransfer>
           </filter>
         </defs>
 
         {mode === 'cat' ? (
           <>
-            <ellipse className="pg-body" cx={bodyCX} cy={bodyCY} rx={bodyRx} ry={bodyRy} />
-            <ellipse className="pg-head" cx={100} cy={108} rx={hRx} ry={hRy} />
-            <g className="pg-ears">
-              <g transform="translate(78,80) rotate(-18)">
-                <path className="pg-ear pg-ear-left" d="M-6 20 L 0 -10 L 10 20 Z" />
+            <ellipse className='pg-body' cx={bodyCX} cy={bodyCY} rx={bodyRx} ry={bodyRy} />
+            <ellipse className='pg-head' cx={100} cy={108} rx={hRx} ry={hRy} />
+            <g className='pg-ears'>
+              <g transform='translate(78,80) rotate(-18)'>
+                <path className='pg-ear pg-ear-left' d='M-6 20 L 0 -10 L 10 20 Z' />
               </g>
-              <g transform="translate(122,80) rotate(18)">
-                <path className="pg-ear pg-ear-right" d="M-10 20 L 0 -10 L 6 20 Z" />
+              <g transform='translate(122,80) rotate(18)'>
+                <path className='pg-ear pg-ear-right' d='M-10 20 L 0 -10 L 6 20 Z' />
               </g>
             </g>
-            <path className="pg-collar" d="M80 105 Q100 110 120 105" />
-            <g className="pg-tail" transform={`translate(${bodyCX + tailOffset},${tailBaseY})`}>
-              <rect className="pg-tail-seg pg-tail-base" x="0" y="-14" width="44" height="14" rx="7" ry="7" />
-              <rect className="pg-tail-seg pg-tail-mid"  x="-28" y="-14" width="34" height="12" rx="6" ry="6" />
-              <rect className="pg-tail-seg pg-tail-tip"  x="-50" y="-14" width="26" height="10" rx="5" ry="5" />
+            <path className='pg-collar' d='M80 105 Q100 110 120 105' />
+            <g className='pg-tail' transform={`translate(${bodyCX + tailOffset},${tailBaseY})`}>
+              <rect className='pg-tail-seg pg-tail-base' x='0' y='-14' width='44' height='14' rx='7' ry='7' />
+              <rect className='pg-tail-seg pg-tail-mid'  x='-28' y='-14' width='34' height='12' rx='6' ry='6' />
+              <rect className='pg-tail-seg pg-tail-tip'  x='-50' y='-14' width='26' height='10' rx='5' ry='5' />
             </g>
-            <ellipse className="pg-sheen" cx="100" cy="125" rx="30" ry="46" fill="url(#pgSheen)" />
+            <ellipse className='pg-sheen' cx='100' cy='125' rx='30' ry='46' fill='url(#pgSheen)' />
           </>
         ) : (
           <>
-            <g className="pg-moon-group">
-              <g filter="url(#pgGlow)" mask="url(#pgCrescentMask)">
-                <rect x="0" y="0" width="200" height="240" fill="rgba(255, 235, 130, 0.95)" />
+            <g className='pg-moon-group'>
+              <g filter='url(#pgGlow)' mask='url(#pgCrescentMask)'>
+                <rect x='0' y='0' width='200' height='240' fill='rgba(255, 235, 130, 0.95)' />
               </g>
-              <g mask="url(#pgCrescentMask)">
-                <rect x="0" y="0" width="200" height="240" className="pg-moon" />
+              <g mask='url(#pgCrescentMask)'>
+                <rect x='0' y='0' width='200' height='240' className='pg-moon' />
               </g>
             </g>
           </>

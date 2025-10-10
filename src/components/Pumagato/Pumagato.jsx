@@ -1,26 +1,26 @@
-import React, { useState, useCallback } from "react";
-import "./Pumagato.css";
+import React, { useState, useCallback } from 'react';
+import './Pumagato.css';
 
 export default function Pumagato({
   size = 180,
-  color = "#0a0a0a",
+  color = '#0a0a0a',
   speed = 1,
-  className = "",
+  className = '',
   style = {},
-  title = "Gato negro sentado (click para luna)",
+  title = 'Gato negro sentado (click para luna)',
   bodyRx = 24,
   bodyRy = 30,
   headR = 14,
   headRx = 32,
   headRy,
   tailOffset = -30,
-  initialMode = "cat",
+  initialMode = 'cat',
 }) {
   const safeSpeed = Math.max(0.3, Math.min(Number(speed) || 1, 3));
   const [mode, setMode] = useState(initialMode);
 
   const toggleMode = useCallback(() => {
-    setMode((m) => (m === "cat" ? "moon" : "cat"));
+    setMode((m) => (m === 'cat' ? 'moon' : 'cat'));
   }, []);
 
   const bodyCX = 100;
@@ -28,7 +28,7 @@ export default function Pumagato({
   const tailBaseY = bodyCY + bodyRy;
 
   const onKeyDown = (e) => {
-    if (e.key === "Enter" || e.key === " ") {
+    if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       toggleMode();
     }
@@ -41,18 +41,18 @@ export default function Pumagato({
     <div
       className={`pumagato ${className}`}
       style={{
-        "--pg-size": `${size}px`,
-        "--pg-color": color,
-        "--pg-speed": safeSpeed,
+        '--pg-size': `${size}px`,
+        '--pg-color': color,
+        '--pg-speed': safeSpeed,
         ...style,
       }}
       role="button"
       tabIndex={0}
-      aria-pressed={mode === "moon"}
+      aria-pressed={mode === 'moon'}
       aria-label={title}
       onClick={toggleMode}
       onKeyDown={onKeyDown}
-      title={mode === "cat" ? "¡Anochecer!" : "¡Amanecer!"}
+      title={mode === 'cat' ? '¡Anochecer!' : '¡Amanecer!'}
     >
       <svg className="pg-svg" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
         <defs>
@@ -73,7 +73,7 @@ export default function Pumagato({
           </filter>
         </defs>
 
-        {mode === "cat" ? (
+        {mode === 'cat' ? (
           <>
             <ellipse className="pg-body" cx={bodyCX} cy={bodyCY} rx={bodyRx} ry={bodyRy} />
             <ellipse className="pg-head" cx={100} cy={108} rx={hRx} ry={hRy} />

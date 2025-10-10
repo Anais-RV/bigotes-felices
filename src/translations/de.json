@@ -1,0 +1,15 @@
+{
+  "Home": {
+    "title": "Startseite",
+    "welcome": "Willkommen bei Bigotes Felices!",
+    "description": "Entdecke unsere Kätzchen!"
+  },
+  "Favorites": {
+    "title": "Favoriten",
+    "empty": "Du hast noch keine Favoriten."
+  },
+  "Adopt": {
+    "title": "Adoptieren",
+    "cta": "Adoptionsprozess starten"
+  }
+}

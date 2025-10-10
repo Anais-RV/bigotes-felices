@@ -16,7 +16,11 @@ export default function FavoriteButton({ catId }) {
       aria-label={favorite ? 'Quitar de favoritos' : 'Añadir a favoritos'}
       onClick={() => setFavorite(v => !v)}
     >
-      {favorite ? <HeartWhite /> : <HeartOutline />}
+      {favorite ? (
+        <HeartWhite size={20} color="#4f6b2a" />
+      ) : (
+        <HeartOutline size={20} color="#8CA66E" />
+      )}
     </Button>
   );
 }

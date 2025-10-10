@@ -2,6 +2,7 @@ import Header from '../../components/Header/Header';
 import Slider from '../../Slider/Slider';
 import CatCard from '../../components/CatCard/CatCard';
 import React, { useState, useEffect } from 'react';
+import "./HomePage.css"
 
 const HomePage = () => {
 
@@ -22,7 +23,9 @@ const HomePage = () => {
         await new Promise(resolve => setTimeout(resolve, 3000)); 
 
         //Simularemos una respuesta exitosa
-        const response = "success";
+        //const response = "success";
+        //Simularemos una respuesta de error
+        const response = "error";
 
         if (response === "error") {
           throw new Error("No se pudo cargar..."); //Si hay error, lo lanzamos
@@ -40,6 +43,27 @@ const HomePage = () => {
     // El [] vacío significa que el useEffect solo carga UNA VEZ al principio
   }, []);
 
+  //Estado de carga
+  if(loading) {
+    return(
+      <div className="loading">
+        <p>Cargando...</p>
+        <p>Por favor, espere un momento</p>
+      </div>
+    );
+  }
+
+  //Estado de error
+  if(error) {
+    return(
+      <div className='error'>
+        <p>Vaya por dios...</p>
+        <p>Algo salió mal</p>
+      </div>
+    );
+  }
+
+  //Estado exitoso
   return (
     <Header 
       slider={<Slider />}

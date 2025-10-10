@@ -1,26 +1,22 @@
-import HeartWhite from "../../icons/HeartWhite";
-import HeartOutline from"../../icons/HeartOutline";
-import { useState } from "react";
-import style from "./FavoriteButton.module.css"
+import { useState } from 'react';
+import HeartWhite from '../../icons/HeartWhite';
+import HeartOutline from '../../icons/HeartOutline';
+import Button from '../Button';
+import './FavoriteButton.css';
 
-const FavoriteButton = () => { 
-    const [isFav, setIsFav] = useState(false);
+export default function FavoriteButton({ catId }) {
+  // TODO: catId será usado con FavoritesContext en futuro PR
+  const [favorite, setFavorite] = useState(false);
+  const classes = `favorite-button${favorite ? ' favorite-button--active' : ''}`;
+
   return (
-    <button
-        className={style.favoriteButton}
-        onClick={()=> setIsFav(!isFav)}
-        aria-pressed={isFav}
-        aria-label={isFav ? "Quitar de favoritos" : "Añadir a favoritos"}
-       title={ "Añadir a favoritos" }>
-
-        
-     {isFav ? <HeartWhite color="#58703E" />: <HeartOutline />
-     } 
-    
-
-
-
-    </button>
-  )
+    <Button
+      className={classes}
+      aria-pressed={favorite}
+      aria-label={favorite ? 'Quitar de favoritos' : 'Añadir a favoritos'}
+      onClick={() => setFavorite(v => !v)}
+    >
+      {favorite ? <HeartWhite /> : <HeartOutline />}
+    </Button>
+  );
 }
-export default FavoriteButton

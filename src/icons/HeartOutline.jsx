@@ -1,4 +1,4 @@
-export default function HeartOutline({ size = 24, color = "#dfebddff" }) {
+export default function HeartOutline({ size = 24, color = '#dfebddff' }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

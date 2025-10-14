@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import PreviousButton from '../components/Buttons/PreviousButton';
+import NextButton from '../components/Buttons/NextButton';
 import './Slider.css';
-import Button from '../components/Button/Button';
 
 // Carga todo desde ../../assets/images (raíz del proyecto)
 const modules = import.meta.glob('../../assets/images/*.{png,jpg,jpeg,webp,gif}', {
@@ -30,13 +31,16 @@ export default function Slider() {
   return (
     <div className="slider">
       <div className="slider-window">
-        <img src={images[index]} alt={`Gato ${index + 1}`} className="slider-image" draggable="false" />
+        <img 
+          src={images[index]} 
+          alt={`Gato ${index + 1}`} 
+          className="slider-image" 
+          draggable="false" 
+        />
       </div>
       <div className="slider-controls">
-        {/** Button Previous */}
-        <Button onClick={prev} ariaLabel="Anterior">←</Button>
-        {/** Button Next */}
-        <Button onClick={next} ariaLabel="Siguiente">→</Button>
+        <PreviousButton prev={prev} />
+        <NextButton next={next} />
       </div>
     </div>
   );

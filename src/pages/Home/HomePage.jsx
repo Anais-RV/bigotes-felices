@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Header from '../../components/Header/Header';
 import Slider from '../../Slider/Slider';
 import CatCard from '../../components/CatCard/CatCard';
@@ -71,9 +72,24 @@ const HomePage = () => {
   return (
     <Header 
       slider={<Slider />}
-      catCard={<CatCard />}
+      catCard={
+        loading ? (
+          <div>Cargando gatos...</div>
+        ) : currentCat ? (
+          <CatCard 
+            name={currentCat.breeds?.[0]?.name || 'Gato Misterioso'}
+            age={Math.floor(Math.random() * 10) + 1} // Edad aleatoria ya que la API no proporciona edad
+            imgUrl={currentCat.url}
+            description={currentCat.breeds?.[0]?.description || 'Un gato adorable esperando un hogar lleno de amor.'}
+            catId={currentCat.id}
+          />
+        ) : (
+          <div>No hay gatos disponibles</div>
+        )
+      }
     />
   );
+
 };
 
 export default HomePage;

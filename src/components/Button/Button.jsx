@@ -1,35 +1,31 @@
-import React from 'react';
-import './Button.css';
-import { preprocessCSS } from 'vite';
+import "./Button.css"
 
 const Button = ({
-  onClick, 
-  className = '', 
-  id, 
-  name,
-  type = 'button', 
-  disabled = false, 
-  children,
-  ariaLabel,
-  ariaPressed,
-  ...preprocessCSS
+    onClick, 
+    className = '', 
+    id, 
+    name,
+    type = 'button', 
+    disabled = false, 
+    children,
+    ariaLabel,
+    ariaPressed
 }) => {
-
   return (
     <button
       type={type}
       onClick={onClick}
-      className={className}
+      className={`button ${className || ''}`.trim()}
       disabled={disabled}
       id={id}
       name={name}
       aria-label={ariaLabel}
       aria-pressed={ariaPressed}>
-      {...props}
-      {children}
+
+        {children}
 
     </button>
   );
 };
 
-export default Button;
+export default Button

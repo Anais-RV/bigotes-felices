@@ -4,7 +4,7 @@ import CatCard from '../../components/CatCard/CatCard';
 import React, { useState, useEffect } from 'react';
 import './HomePage.css';
 //importamos catService para traer datos de su API
-import '../../service/catService.js'
+import '../../service/catService.js';
 
 const HomePage = () => {
 

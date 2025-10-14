@@ -3,10 +3,17 @@ import Header from '../../components/Header/Header';
 import Slider from '../../Slider/Slider';
 import CatCard from '../../components/CatCard/CatCard';
 import { readAllCats } from '../../service/catService';
+import { useContext } from 'react';
+import { LanguageContext } from '@/context/LanguageContext';
 
 const HomePage = () => {
   const [cats, setCats] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { translating } = useContext(LanguageContext);
+
+  useEffect(() => {
+    document.title = translating.Home.title;
+  }, [translating]);
 
   useEffect(() => {
     const fetchCats = async () => {

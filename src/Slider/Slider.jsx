@@ -45,3 +45,12 @@ export default function Slider() {
     </div>
   );
 }
+
+const handleKeyDown = (e) => {
+  if (e.key === 'ArrowRight') {
+    // lógica para avanzar al siguiente slide
+  } else if (e.key === 'ArrowLeft') {
+    // lógica para retroceder al slide anterior
+  }
+};
+

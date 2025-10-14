@@ -102,3 +102,20 @@
     font-size: 16px;
   }
 }
+
+.slider-controls button {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+
+.slider-container:focus {
+  outline: 2px solid #0078D4; /* azul accesible */
+  outline-offset: 4px;
+}
+
+button:focus {
+  outline: 2px solid #0078D4;
+}
+

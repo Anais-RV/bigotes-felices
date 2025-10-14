@@ -16,9 +16,14 @@ const HomePage = () => {
   useEffect(() => {
     const fetchCats = async () => {
       try {
+
+        //Delay en red (tiempo de espera 1.5 segundos)
+        await new Promise(resolve => setTimeout(resolve, 1500));
+
         const catsData = await readAllCats(10); // Cargar 10 gatos
         setCats(catsData);
         setLoading(false);
+
       } catch (error) {
         console.error('Error fetching cats:', error);
         setLoading(false);

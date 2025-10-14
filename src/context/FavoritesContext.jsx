@@ -92,4 +92,4 @@ export const useFavorites = () => {
   return context;
 };
 
-export default FavoritesProvider;
+export default FavoritesContext;

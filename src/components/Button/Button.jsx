@@ -1,5 +1,6 @@
 import React from 'react';
 import './Button.css';
+import { preprocessCSS } from 'vite';
 
 const Button = ({
   onClick, 
@@ -10,7 +11,8 @@ const Button = ({
   disabled = false, 
   children,
   ariaLabel,
-  ariaPressed
+  ariaPressed,
+  ...preprocessCSS
 }) => {
 
   return (
@@ -23,7 +25,7 @@ const Button = ({
       name={name}
       aria-label={ariaLabel}
       aria-pressed={ariaPressed}>
-
+      {...props}
       {children}
 
     </button>

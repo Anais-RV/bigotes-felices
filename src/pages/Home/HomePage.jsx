@@ -3,6 +3,8 @@ import Slider from '../../Slider/Slider';
 import CatCard from '../../components/CatCard/CatCard';
 import React, { useState, useEffect } from 'react';
 import './HomePage.css';
+//importamos catService para traer datos de su API
+import '../../service/catService.js'
 
 const HomePage = () => {
 
@@ -19,15 +21,16 @@ const HomePage = () => {
         setLoading(true); //Decimos: está cargando
         setError(null); //Limpiamos los errores anteriores
 
-        //Añadimos Promise para que la duración de la carga sea de 4 segundos
-        await new Promise(resolve => setTimeout(resolve, 4000)); 
+        //Añadimos Promise para que la duración de la carga sea de 1.5 segundos
+        await new Promise(resolve => setTimeout(resolve, 1500)); 
 
-        //Probar con uno de estos responses:
-        //Simularemos una respuesta exitosa
+        //Probamos con la variable response para simular que estamos conectando a una API externa:
+        //Simularemos una respuesta de exito
         const response = 'success';
         //Simularemos una respuesta de error
         //const response = "error";
 
+        //Condicional error
         if (response === 'error') {
           throw new Error('No se pudo cargar...'); //Si hay error, lo lanzamos
         }

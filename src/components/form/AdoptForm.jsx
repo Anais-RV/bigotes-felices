@@ -150,7 +150,7 @@ Ocurrió un error al enviar. Intenta de nuevo.
         <Button 
           type="submit" 
           disabled={status === 'submitting'} >
-            {status === 'submitting' ? 'Enviando...' : 'Enviar'}
+          {status === 'submitting' ? 'Enviando...' : 'Enviar'}
         </Button>
 
         {/** Button Reset */}

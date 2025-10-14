@@ -1,16 +1,16 @@
-import React from 'react'
-import "./Button.css"
+import React from 'react';
+import './Button.css';
 
 const Button = ({
-    onClick, 
-    className = '', 
-    id, 
-    name,
-    type = 'button', 
-    disabled = false, 
-    children,
-    ariaLabel,
-    ariaPressed
+  onClick, 
+  className = '', 
+  id, 
+  name,
+  type = 'button', 
+  disabled = false, 
+  children,
+  ariaLabel,
+  ariaPressed
 }) => {
 
   return (
@@ -24,10 +24,10 @@ const Button = ({
       aria-label={ariaLabel}
       aria-pressed={ariaPressed}>
 
-        {children}
+      {children}
 
     </button>
-  )
+  );
 };
 
-export default Button
+export default Button;

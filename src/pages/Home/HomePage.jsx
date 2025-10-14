@@ -2,7 +2,7 @@ import Header from '../../components/Header/Header';
 import Slider from '../../Slider/Slider';
 import CatCard from '../../components/CatCard/CatCard';
 import React, { useState, useEffect } from 'react';
-import "./HomePage.css"
+import './HomePage.css';
 
 const HomePage = () => {
 
@@ -24,12 +24,12 @@ const HomePage = () => {
 
         //Probar con uno de estos responses:
         //Simularemos una respuesta exitosa
-        const response = "success";
+        const response = 'success';
         //Simularemos una respuesta de error
         //const response = "error";
 
-        if (response === "error") {
-          throw new Error("No se pudo cargar..."); //Si hay error, lo lanzamos
+        if (response === 'error') {
+          throw new Error('No se pudo cargar...'); //Si hay error, lo lanzamos
         }
 
 
@@ -38,7 +38,7 @@ const HomePage = () => {
       } finally {
         setLoading(false); //Le decimos que ya no está cargando
       }
-    }
+    };
     // Llamamos a la funcion fetchData
     fetchData();
     // El [] vacío significa que el useEffect solo carga UNA VEZ al principio

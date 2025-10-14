@@ -9,12 +9,11 @@ import { useEffect } from 'react';
 const FavoritesPage = () => {
   const { favorites = [] } = useFavorites() || {};
   const navigate = useNavigate();
-  const { t, lang } = useLanguage();
-  const page = "Favorites";
+  const { t, setPage } = useLanguage();
 
   useEffect(() => {
-    document.title = t(page, "title") || "Bigotes Felices";
-  }, [lang]);
+    setPage("Favorites");
+  }, [setPage]);
 
   const handleAdopt = (catId) => {
     // Navegar a la página de adopción con el ID del gato

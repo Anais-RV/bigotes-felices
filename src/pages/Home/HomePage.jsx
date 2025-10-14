@@ -8,12 +8,11 @@ import { useLanguage } from "../../context/LanguageContext.jsx";
 const HomePage = () => {
   const [cats, setCats] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { t, lang } = useLanguage();
-  const page = "Home";
+  const { t, setPage } = useLanguage();
 
   useEffect(() => {
-    document.title = t(page, "title") || "Bigotes Felices";
-  }, [lang]);
+    setPage("Home");
+  }, [setPage]);
 
   useEffect(() => {
     const fetchCats = async () => {

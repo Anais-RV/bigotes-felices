@@ -4,12 +4,11 @@ import { useEffect } from 'react';
 
 const AdoptPage = () => {
 
-  const { t, lang } = useLanguage();
-  const page = "Adopt";
+  const { t, setPage } = useLanguage();
 
   useEffect(() => {
-    document.title = t(page, "title") || "Bigotes Felices";
-  }, [lang]);
+    setPage("Adopt");
+  }, [setPage]);
 
   return (
     <div className="container mx-auto px-4 py-8">

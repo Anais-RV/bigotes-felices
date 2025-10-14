@@ -1,16 +1,16 @@
-import { useContext } from 'react';
 import AdoptForm from '../../components/AdoptForm/AdoptForm';
-import { LanguageContext } from '@/context/LanguageContext';
+import { useLanguage } from "../../context/LanguageContext.jsx";
 import { useEffect } from 'react';
 
 const AdoptPage = () => {
 
-  const { translating } = useContext(LanguageContext);
+  const { t, lang } = useLanguage();
+  const page = "Adopt";
 
   useEffect(() => {
-    document.title = translating.Adopt.title;
-  }, [translating]);
-  
+    document.title = t(page, "title") || "Bigotes Felices";
+  }, [lang]);
+
   return (
     <div className="container mx-auto px-4 py-8">
       <AdoptForm />

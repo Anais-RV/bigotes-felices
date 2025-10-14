@@ -3,18 +3,18 @@ import { useFavorites } from '../../context/FavoritesContext';
 import CatCard from '../../components/CatCard/CatCard';
 import Button from '../../components/Button/Button';
 import './FavoritesPage.css';
-import { useContext } from 'react';
-import { LanguageContext } from '@/context/LanguageContext';
+import { useLanguage } from "../../context/LanguageContext.jsx";
 import { useEffect } from 'react';
 
 const FavoritesPage = () => {
   const { favorites = [] } = useFavorites() || {};
   const navigate = useNavigate();
-  const { translating } = useContext(LanguageContext);
+  const { t, lang } = useLanguage();
+  const page = "Favorites";
 
   useEffect(() => {
-    document.title = translating.Favorites.title;
-  }, [translating]);
+    document.title = t(page, "title") || "Bigotes Felices";
+  }, [lang]);
 
   const handleAdopt = (catId) => {
     // Navegar a la página de adopción con el ID del gato

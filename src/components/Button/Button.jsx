@@ -1,15 +1,17 @@
-import "./Button.css"
+import './Button.css';
+
 
 const Button = ({
-    onClick, 
-    className = '', 
-    id, 
-    name,
-    type = 'button', 
-    disabled = false, 
-    children,
-    ariaLabel,
-    ariaPressed
+  onClick, 
+  className = '', 
+  id, 
+  name,
+  type = 'button', 
+  disabled = false, 
+  children,
+  ariaLabel,
+  ariaPressed,
+  ...props
 }) => {
   return (
     <button
@@ -20,12 +22,12 @@ const Button = ({
       id={id}
       name={name}
       aria-label={ariaLabel}
-      aria-pressed={ariaPressed}>
-
-        {children}
-
+      aria-pressed={ariaPressed}
+      {...props}
+    >
+      {children}
     </button>
   );
 };
 
-export default Button
+export default Button;

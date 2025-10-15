@@ -5,45 +5,34 @@ import HeartOutline from '../../icons/HeartOutline';
 import Button from '../Button';
 import './FavoriteButton.css';
 
-export default function FavoriteButton({ cat, catId, catName, catImage, catMeta, ...rest }) {
+export default function FavoriteButton({ cat, className }) {
   const { addFavorite, removeFavorite, isFavorite } = useFavorites();
-
-  // Resolver props/objeto cat
-  const id = cat ? cat.id : catId;
-  const name = cat ? cat.name : catName;
-  const image = cat ? cat.image : catImage;
-  const meta = cat ? { ...cat } : (catMeta || {});
-  const nid = typeof id !== 'undefined' ? String(id) : undefined;
-
-  // Estado sincronizado con contexto
-  const [favorite, setFavorite] = useState(() => isFavorite(nid));
+  const [favorite, setFavorite] = useState(() => (cat?.id ? isFavorite(cat.id) : false));
 
   useEffect(() => {
-    const val = isFavorite(nid);
-    console.debug(`[FavoriteButton:${nid}] isFavorite ->`, val);
-    setFavorite(val);
-  }, [nid, isFavorite]);
-
-  // item completo que guardaremos
-  const favoriteItem = { id: nid, name, image, ...meta };
+    if (!cat?.id) {
+      setFavorite(false);
+      return;
+    }
+    setFavorite(isFavorite(cat.id));
+  }, [cat, isFavorite]);
 
   const handleToggle = useCallback((e) => {
-    e && e.preventDefault && e.preventDefault();
-    console.debug(`[FavoriteButton:${nid}] handleToggle - current local fav:`, favorite);
+    if (e?.stopPropagation) e.stopPropagation();
+    if (!cat?.id) return;
+
     setFavorite(prev => {
       const nuevo = !prev;
-      if (nuevo) {
-        console.debug(`[FavoriteButton:${nid}] adding`, favoriteItem);
-        addFavorite(favoriteItem);
-      } else {
-        console.debug(`[FavoriteButton:${nid}] removing id:`, nid);
-        removeFavorite(nid);
-      }
+      const catData = { ...cat, id: String(cat.id), addedAt: new Date().toISOString() };
+
+      if (nuevo) addFavorite(catData);
+      else removeFavorite(cat.id);
+
       return nuevo;
     });
-  }, [nid, addFavorite, removeFavorite, favoriteItem, favorite]);
+  }, [cat, addFavorite, removeFavorite]);
 
-  const classes = `favorite-button${favorite ? ' favorite-button--active' : ''}`;
+  const classes = `favorite-button${favorite ? ' favorite-button--active' : ''} ${className || ''}`;
 
   return (
     <Button
@@ -51,13 +40,8 @@ export default function FavoriteButton({ cat, catId, catName, catImage, catMeta,
       aria-pressed={!!favorite}
       aria-label={favorite ? 'Quitar de favoritos' : 'Añadir a favoritos'}
       onClick={handleToggle}
-      {...rest}
     >
-      {favorite ? (
-        <HeartWhite size={20} color="#4f6b2a" />
-      ) : (
-        <HeartOutline size={20} color="#8CA66E" />
-      )}
+      {favorite ? <HeartWhite size={20} color="#4f6b2a" /> : <HeartOutline size={20} color="#8CA66E" />}
     </Button>
   );
 }

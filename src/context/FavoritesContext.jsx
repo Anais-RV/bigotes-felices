@@ -1,12 +1,10 @@
-import React, { createContext, useContext, useCallback, useEffect, useMemo } from 'react';
-
+import React, { createContext, useContext, useEffect, useCallback, useMemo } from 'react';
 
 const ADD_FAVORITE = 'ADD_FAVORITE';
 const REMOVE_FAVORITE = 'REMOVE_FAVORITE';
 
- 
+// Reducer robusto
 const favoritesReducer = (state, action) => {
-  console.debug('[favoritesReducer] action:', action);
   switch (action.type) {
     case ADD_FAVORITE: {
       const item = action.payload;
@@ -15,16 +13,17 @@ const favoritesReducer = (state, action) => {
       return { ...state, favorites: [...state.favorites, { ...item, id }] };
     }
     case REMOVE_FAVORITE: {
-      const payload = action.payload;
-      const idToRemove = payload && typeof payload === 'object' ? String(payload.id) : String(payload);
-      return { ...state, favorites: state.favorites.filter(item => String(item.id) !== idToRemove) };
+      const idToRemove = action.payload && typeof action.payload === 'object'
+        ? String(action.payload.id)
+        : String(action.payload);
+      return { ...state, favorites: state.favorites.filter(f => String(f.id) !== idToRemove) };
     }
     default:
       return state;
   }
 };
 
-// Loading data from localStorage
+// Inicializador desde localStorage
 const initializer = () => {
   try {
     const raw = localStorage.getItem('favorites');
@@ -37,8 +36,7 @@ const initializer = () => {
       map.set(String(item.id), { ...item, id: String(item.id) });
     });
     return { favorites: Array.from(map.values()) };
-  } catch (err) {
-    console.warn('Favorites: init parse error', err);
+  } catch {
     return { favorites: [] };
   }
 };
@@ -48,38 +46,25 @@ const FavoritesContext = createContext(null);
 export const FavoritesProvider = ({ children }) => {
   const [state, dispatch] = React.useReducer(favoritesReducer, undefined, initializer);
 
-
-  const addFavorite = useCallback((item) => {
-    if (!item || typeof item.id === 'undefined') {
-      console.warn('[Favorites] addFavorite: item no válido', item);
-      return;
-    }
-    dispatch({ type: ADD_FAVORITE, payload: { ...item, id: String(item.id) } });
+  const addFavorite = useCallback((cat) => {
+    if (!cat || typeof cat.id === 'undefined') return;
+    dispatch({ type: ADD_FAVORITE, payload: { ...cat, id: String(cat.id) } });
   }, []);
 
   const removeFavorite = useCallback((idOrObj) => {
     const id = idOrObj && typeof idOrObj === 'object' ? idOrObj.id : idOrObj;
-    if (typeof id === 'undefined') {
-      console.warn('[Favorites] removeFavorite: id no válido', idOrObj);
-      return;
-    }
+    if (typeof id === 'undefined') return;
     dispatch({ type: REMOVE_FAVORITE, payload: String(id) });
   }, []);
 
   const isFavorite = useCallback((id) => {
     if (typeof id === 'undefined') return false;
-    const nid = String(id);
-    return state.favorites.some(item => String(item.id) === nid);
+    return state.favorites.some(f => String(f.id) === String(id));
   }, [state.favorites]);
 
-  // Sincronizar localStorage 
+  // Persistencia en localStorage
   useEffect(() => {
-    try {
-      localStorage.setItem('favorites', JSON.stringify(state.favorites));
-      console.debug('[Favorites] localStorage updated:', state.favorites);
-    } catch (err) {
-      console.warn('[Favorites] localStorage set error', err);
-    }
+    localStorage.setItem('favorites', JSON.stringify(state.favorites));
   }, [state.favorites]);
 
   const value = useMemo(() => ({
@@ -89,11 +74,13 @@ export const FavoritesProvider = ({ children }) => {
     isFavorite,
   }), [state.favorites, addFavorite, removeFavorite, isFavorite]);
 
-  return <FavoritesContext.Provider value={value}>{children}</FavoritesContext.Provider>;
+  return (
+    <FavoritesContext.Provider value={value}>
+      {children}
+    </FavoritesContext.Provider>
+  );
 };
 
-
-// eslint-disable-next-line react-refresh/only-export-components
 export const useFavorites = () => {
   const ctx = useContext(FavoritesContext);
   if (!ctx) throw new Error('useFavorites debe usarse dentro de FavoritesProvider');

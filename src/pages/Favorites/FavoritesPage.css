@@ -2,6 +2,7 @@
 
 .favorites-page {
   max-width: 1200px;
+  font-family: 'Poppins', sans-serif;
   margin: 0 auto;
   padding: 2rem;
 }
@@ -13,13 +14,27 @@
 }
 
 .favorites-page__header .button {
+  flex: 1;
+  text-align: center;
+  padding: 10px 12px;
+  border-radius: 999px;
   background: #8CA66E;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: clamp(16px, 1.8vw, 20px);
+  letter-spacing: 0.4px;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+  display: inline-block;
+  border: none;
+  /* background: #8CA66E;
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 999px;
   font-weight: 600;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(140, 166, 110, 0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12); */
 }
 
 .favorites-page__header .button:hover {
@@ -51,7 +66,21 @@
 }
 
 .favorites-page__adopt-button {
-  width: 100%;
+  flex: 1;
+  text-align: center;
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: #8CA66E;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: clamp(16px, 1.8vw, 20px);
+  letter-spacing: 0.4px;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+  display: inline-block;
+  border: none;
+  /* width: 100%;
   max-width: 320px;
   background: #B8D498;
   color: #333;
@@ -60,7 +89,7 @@
   font-weight: 600;
   font-size: 1rem;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); */
 }
 
 .favorites-page__adopt-button:hover {
@@ -92,14 +121,20 @@
 }
 
 .empty-favorites .button {
-  background: #8CA66E;
-  color: white;
-  padding: 0.875rem 2rem;
+  flex: 1;
+  text-align: center;
+  padding: 10px 12px;
   border-radius: 999px;
+  background: #8CA66E;
+  color: #ffffff;
   font-weight: 600;
-  font-size: 1.1rem;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(140, 166, 110, 0.3);
+  font-size: clamp(16px, 1.8vw, 20px);
+  letter-spacing: 0.4px;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+  display: inline-block;
+  border: none;
 }
 
 .empty-favorites .button:hover {

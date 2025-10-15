@@ -121,8 +121,10 @@ body {
 }
 
 .nav-link:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.16);
+  background: #8CA66E;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(140, 166, 110, 0.3);
 }
 
 .nav-link:active {

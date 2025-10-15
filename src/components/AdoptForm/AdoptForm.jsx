@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import './AdoptForm.css';
 import Button from '../Button/Button';
 
 // Declaramos funcion AdoptForm con el prop onSubmit
@@ -83,7 +84,7 @@ const AdoptForm = ({onSubmit}) => {
         Enviar
       </Button>
       {/** Boton Reiniciar */}
-      <Button type='button' onClick={handleReset} id="reset" name="reset">
+      <Button type='button' onClick={handleReset} className="submit" id="reset" name="reset">
         Reiniciar
       </Button>
     </form>

@@ -2,7 +2,7 @@ import './CatCard.css';
 import FavoriteButton from '../FavoriteButton/FavoriteButton';
 import { useState } from 'react';
 
-export default function CatCard({ className, name, age, imgUrl, description, catId }) {
+export default function CatCard({ className, name, age, imgUrl, description, catId, showDescriptionButtons = false }) {
   const [flipped, setFlipped] = useState(false);
 
   const handleFlip = (e) => {
@@ -24,9 +24,11 @@ export default function CatCard({ className, name, age, imgUrl, description, cat
             <FavoriteButton className={className} catId={catId} />
           </div>
 
-          <button className="flip-button" onClick={handleFlip}>
+          {showDescriptionButtons && (
+            <button className="flip-button" onClick={handleFlip}>
             Ver descripción
-          </button>
+            </button>
+          )}
         </div>
 
         <div className="card-back">

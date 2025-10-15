@@ -23,10 +23,12 @@ const HomePage = () => {
         const catsData = await readAllCats(10); // Cargar 10 gatos
         setCats(catsData);
         setLoading(false);
+        setError(null);
 
       } catch (error) {
         console.error('Error fetching cats:', error);
         setLoading(false);
+        setError('Error en pantalla de carga.');
       }
     };
 

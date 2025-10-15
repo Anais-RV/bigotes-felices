@@ -1,27 +1,29 @@
-import { createContext, useContext, useState, useEffect } from "react";
-import translations from "../translations/index.js";
+import { createContext, useContext, useState } from 'react';
+import translations from '../translations/index.js';
 
-export const LanguageContext = createContext();
+// eslint-disable-next-line react-refresh/only-export-components
+export const LanguageContext = createContext(null);
 
-export const LanguageProvider = ({ children }) => {
-  
-  const [lang, setLang] = useState("en");
-  const [page, setPage] = useState("Home");
-  
-  const t = (key) => {
-    return translations[lang]?.[page]?.[key] ?? `[${key}]`;
-  }
+export function LanguageProvider({ children }) {
+  // Idioma por defecto: español
+  const [lang, setLang] = useState('es');
 
-  useEffect(() => {
-    const title = t("title") || "Bigotes Felices";
-    document.title = title;
-  }, [lang, page]);
+  const t = (section, key) => {
+    if (!section || !key) {
+      console.warn('⚠️ Falta sección o clave en traducción:', { section, key });
+      return '[missing-key]';
+    }
+    return translations?.[lang]?.[section]?.[key] ?? `[${section}.${key}]`;
+  };
+
+  const value = { lang, setLang, t };
 
   return (
-    <LanguageContext.Provider value={{ lang, setLang, page, setPage, t }}>
+    <LanguageContext.Provider value={value}>
       {children}
     </LanguageContext.Provider>
   );
-};
+}
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useLanguage = () => useContext(LanguageContext);

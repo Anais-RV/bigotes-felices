@@ -2,14 +2,17 @@
   "Home": {
     "title": "Startseite",
     "welcome": "Willkommen bei Bigotes Felices!",
-    "description": "Entdecke unsere Kätzchen!"
+    "description": "Entdecke unsere Katzen und finde deinen idealen Begleiter."
   },
   "Favorites": {
     "title": "Favoriten",
-    "empty": "Du hast noch keine Favoriten."
+    "heading": "Meine Lieblingskatzen",
+    "emptyTitle": "Du hast noch keine Favoriten",
+    "emptyText": "Erkunde unsere Katzen und füge einige zu deinen Favoriten hinzu.",
+    "ctaAdopt": "Adoptieren"
   },
   "Adopt": {
     "title": "Adoptieren",
-    "cta": "Adoptionsprozess starten"
+    "cta": "Starte den Adoptionsprozess"
   }
 }

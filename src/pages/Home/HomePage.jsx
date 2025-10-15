@@ -51,6 +51,7 @@ export default function HomePage() {
             imgUrl={currentCat.url}
             description={currentCat.breeds?.[0]?.description || 'Un gato adorable esperando un hogar lleno de amor.'}
             catId={currentCat.id}
+            showDescriptionButtons={false}
           />
         ) : (
           <div>No hay gatos disponibles</div>

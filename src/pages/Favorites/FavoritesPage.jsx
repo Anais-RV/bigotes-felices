@@ -55,6 +55,8 @@ export default function FavoritesPage() {
                 imgUrl={cat.imgUrl}
                 description={cat.description}
                 catId={cat.catId}
+                showDescriptionButtons={true}
+                showHomeButton={true}
               />
               <Button
                 onClick={() => handleAdopt(cat.catId)}

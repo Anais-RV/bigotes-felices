@@ -15,7 +15,7 @@
 
 .slider-window {
   background: #ffffff;
-  border-radius: 32px;
+  border-radius: 20px;
   overflow: hidden;
   width: 100%;
   height: var(--window-height);

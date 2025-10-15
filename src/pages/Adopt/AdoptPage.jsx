@@ -10,7 +10,7 @@ export default function AdoptPage() {
   }, [t, lang]);
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="adopt-page-container">
       <AdoptForm />
     </div>
   );

@@ -9,13 +9,12 @@ const FavoritesPage = () => {
   const navigate = useNavigate();
 
   const handleAdopt = (catId) => {
-    // Navegar a la página de adopción con el ID del gato
     navigate('/adopt', { state: { catId } });
   };
 
   return (
     <main className="favorites-page">
-      {/* Botón Volver al Inicio en la parte superior */}
+      {/* Botón Volver al Inicio */}
       <div className="favorites-page__header">
         <Link to="/">
           <Button ariaLabel="Volver a la página principal">
@@ -36,28 +35,36 @@ const FavoritesPage = () => {
             </Link>
           </div>
         ) : (
-          favorites.map((cat) => (
-            <div key={cat.catId} className="favorites-page__card-wrapper">
-              <CatCard
-                name={cat.name}
-                age={cat.age}
-                imgUrl={cat.imgUrl}
-                description={cat.description}
-                catId={cat.catId}
-              />
-              <Button
-                onClick={() => handleAdopt(cat.catId)}
-                className="favorites-page__adopt-button"
-                ariaLabel={`Adoptar a ${cat.name}`}
-              >
-                Adoptar a {cat.name}
-              </Button>
+          favorites.map((cat) => {
+            const id = cat.id || cat.catId; // compatibilidad
+            const name = cat.name || 'Gato sin nombre';
+            const img = cat.image || cat.imgUrl || '';
+            const description = cat.description || cat.desc || 'Sin descripción';
+            const age = cat.age || 'Edad desconocida';
 
-            </div>
-          ))
+            return (
+              <div key={id} className="favorites-page__card-wrapper">
+                <CatCard
+                  catId={id}
+                  name={name}
+                  age={age}
+                  imgUrl={img}
+                  description={description}
+                />
+
+                <Button
+                  onClick={() => handleAdopt(id)}
+                  className="favorites-page__adopt-button"
+                  ariaLabel={`Adoptar a ${name}`}
+                >
+                  Adoptar a {name}
+                </Button>
+              </div>
+            );
+          })
         )}
       </section>
-    </main >
+    </main>
   );
 };
 

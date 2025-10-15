@@ -25,7 +25,7 @@ const FavoritesPage = () => {
       </div>
 
       <h1 className="favorites-page__title">Mis Favoritos</h1>
-      
+
       <section className="favorites-page__section">
         {favorites.length === 0 ? (
           <div className="empty-favorites">
@@ -38,25 +38,26 @@ const FavoritesPage = () => {
         ) : (
           favorites.map((cat) => (
             <div key={cat.catId} className="favorites-page__card-wrapper">
-              <CatCard 
+              <CatCard
                 name={cat.name}
-                age={cat.age} 
+                age={cat.age}
                 imgUrl={cat.imgUrl}
                 description={cat.description}
                 catId={cat.catId}
               />
-              <Button 
+              <Button
                 onClick={() => handleAdopt(cat.catId)}
                 className="favorites-page__adopt-button"
                 ariaLabel={`Adoptar a ${cat.name}`}
               >
                 Adoptar a {cat.name}
               </Button>
+
             </div>
           ))
         )}
       </section>
-    </main>
+    </main >
   );
 };
 

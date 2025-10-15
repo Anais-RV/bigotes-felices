@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { submitAdoption } from '../../service/adopteServices';
-import FieldError from '../FormErrors/FieldError';
-import FormConfirm from '../FormErrors/FormConfirm';
+import FieldError from '../formErrors/FieldError';
+import FormConfirm from '../formErrors/FormConfirm';
 import Button from '../Button/Button';
 import './AdoptForm.css';
 

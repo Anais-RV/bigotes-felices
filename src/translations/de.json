@@ -6,7 +6,13 @@
   },
   "Favorites": {
     "title": "Favoriten",
-    "empty": "Du hast noch keine Favoriten."
+    "heading": "Meine Favoriten",
+    "back_button": "Zurück zur Startseite",
+    "back_button_aria": "Zurück zur Startseite gehen",
+    "empty_title": "Keine Favoriten",
+    "empty_message": "Entdecke unsere Kätzchen und füge einige zu deinen Favoriten hinzu!",
+    "adopt_button": "Adoptieren",
+    "adopt_cat": "Adoptieren"
   },
   "Adopt": {
     "title": "Adoptieren",

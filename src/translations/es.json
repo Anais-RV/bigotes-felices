@@ -6,7 +6,13 @@
   },
   "Favorites": {
     "title": "Favoritos",
-    "empty": "Aún no tienes favoritos."
+    "heading": "Mis Favoritos",
+    "back_button": "Volver al Inicio",
+    "back_button_aria": "Volver a la página principal",
+    "empty_title": "No tienes favoritos",
+    "empty_message": "¡Explora nuestros gatitos y añade algunos a tus favoritos!",
+    "adopt_button": "Adoptar",
+    "adopt_cat": "Adoptar a"
   },
   "Adopt": {
     "title": "Adoptar",

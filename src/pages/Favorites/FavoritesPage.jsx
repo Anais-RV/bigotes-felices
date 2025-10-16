@@ -2,11 +2,18 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useFavorites } from '../../context/FavoritesContext';
 import CatCard from '../../components/CatCard/CatCard';
 import Button from '../../components/Button/Button';
+import { useLanguage } from '../../context/LanguageContext';
+import { useEffect } from 'react';
 import './FavoritesPage.css';
 
 const FavoritesPage = () => {
   const { favorites = [] } = useFavorites() || {};
   const navigate = useNavigate();
+  const { t, lang } = useLanguage();
+
+  useEffect(() => {
+    document.title = t('Favorites', 'title') || 'Bigotes Felices';
+  }, [t, lang]);
 
   const handleAdopt = (catId) => {
     navigate('/adopt', { state: { catId } });
@@ -17,21 +24,21 @@ const FavoritesPage = () => {
       {/* Botón Volver al Inicio */}
       <div className="favorites-page__header">
         <Link to="/">
-          <Button ariaLabel="Volver a la página principal">
-            ← Volver al Inicio
+          <Button ariaLabel={t('Favorites', 'back_button_aria')}>
+            ← {t('Favorites', 'back_button')}
           </Button>
         </Link>
       </div>
 
-      <h1 className="favorites-page__title">Mis Favoritos</h1>
+      <h1 className="favorites-page__title">{t('Favorites', 'heading')}</h1>
 
       <section className="favorites-page__section">
         {favorites.length === 0 ? (
           <div className="empty-favorites">
-            <h2>No tienes favoritos</h2>
-            <p>¡Explora nuestros gatitos y añade algunos a tus favoritos!</p>
+            <h2>{t('Favorites', 'empty_title')}</h2>
+            <p>{t('Favorites', 'empty_message')}</p>
             <Link to="/adopt">
-              <Button>Adoptar</Button>
+              <Button>{t('Favorites', 'adopt_button')}</Button>
             </Link>
           </div>
         ) : (
@@ -50,14 +57,15 @@ const FavoritesPage = () => {
                   age={age}
                   imgUrl={img}
                   description={description}
+                  showDescriptionButtons={true}
                 />
 
                 <Button
                   onClick={() => handleAdopt(id)}
                   className="favorites-page__adopt-button"
-                  ariaLabel={`Adoptar a ${name}`}
+                  ariaLabel={`${t('Favorites', 'adopt_cat')} ${name}`}
                 >
-                  Adoptar a {name}
+                  {t('Favorites', 'adopt_cat')} {name}
                 </Button>
               </div>
             );

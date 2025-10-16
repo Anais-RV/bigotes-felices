@@ -1,12 +1,12 @@
-import { useContext } from "react";
-import { LanguageContext } from "../../context/LanguageContext.jsx";
+import { useContext } from 'react';
+import { LanguageContext } from '../../context/LanguageContext.jsx';
 
 const languages = [
-  { code: "en", label: "English" },
-  { code: "es", label: "Español" },
-  { code: "de", label: "Deutsch" },
-  { code: "ru", label: "Русский" },
-  { code: "br", label: "Português" }
+  { code: 'en', label: 'English' },
+  { code: 'es', label: 'Español' },
+  { code: 'de', label: 'Deutsch' },
+  { code: 'ru', label: 'Русский' },
+  { code: 'br', label: 'Português' }
 ];
 
 const LanguageSelector = () => {

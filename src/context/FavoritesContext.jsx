@@ -83,7 +83,10 @@ export const FavoritesProvider = ({children}) => {
   );
 };
 
-// Hook personalizado para usar el contexto
+// =============================
+// HOOK PERSONALIZADO
+// =============================
+// eslint-disable-next-line react-refresh/only-export-components
 export const useFavorites = () => {
   const context = useContext(FavoritesContext);
   if (!context) {

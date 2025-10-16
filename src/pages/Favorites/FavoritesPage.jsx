@@ -48,22 +48,22 @@ export default function FavoritesPage() {
           </div>
         ) : (
           favorites.map((cat) => (
-            <div key={cat.catId} className="favorites-page__card-wrapper">
+            <div key={cat.id} className="favorites-page__card-wrapper">
               <CatCard
                 name={cat.name}
                 age={cat.age}
-                imgUrl={cat.imgUrl}
+                imgUrl={cat.imgUrl || cat.image}
                 description={cat.description}
-                catId={cat.catId}
+                catId={cat.id}
                 showDescriptionButtons={true}
-                showHomeButton={true}
+                
               />
               <Button
-                onClick={() => handleAdopt(cat.catId)}
+                onClick={() => handleAdopt(cat.id)}
                 className="favorites-page__adopt-button"
-                ariaLabel={`Adoptar a ${cat.name}`}
+                ariaLabel={`${t('Favorites', 'ctaAdopt')} ${cat.name}`}
               >
-                {t('Favorites', 'adoptBtn') || `Adoptar a ${cat.name}`}
+                {t('Favorites', 'ctaAdopt')} {cat.name}
               </Button>
             </div>
           ))

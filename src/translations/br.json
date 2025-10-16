@@ -14,5 +14,24 @@
   "Adopt": {
     "title": "Adoção",
     "cta": "Inicie o processo de adoção"
+  },
+  "AdoptForm": {
+    "heading": "Formulário de Adoção",
+    "fullname": "Nome Completo:",
+    "fullnamePlaceholder": "João Silva",
+    "email": "E-mail:",
+    "emailPlaceholder": "joaosilva@gmail.com",
+    "phone": "Telefone:",
+    "phonePlaceholder": "11 98765-4321",
+    "message": "Mensagem:",
+    "messagePlaceholder": "Conte-nos sua opinião...",
+    "submit": "Enviar",
+    "reset": "Limpar",
+    "home": "Início"
+  },
+  "Navigation": {
+    "home": "INÍCIO",
+    "favorites": "FAVORITOS",
+    "adopt": "ADOTAR"
   }
 }

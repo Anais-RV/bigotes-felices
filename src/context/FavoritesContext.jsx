@@ -1,81 +1,123 @@
-import React, { createContext, useContext, useReducer} from 'react';
+import React, { createContext, useContext, useEffect, useCallback, useMemo } from 'react';
 
-//Acciones
+// =============================
+// ACCIONES DEL REDUCER
+// =============================
 const ADD_FAVORITE = 'ADD_FAVORITE';
 const REMOVE_FAVORITE = 'REMOVE_FAVORITE';
 
-//Estado inicial con un objeto 
-const inicial = {
-  favorites: [],
-};
-
-//Reducer
+// =============================
+// REDUCER
+// =============================
+// Reducer robusto: maneja las acciones de agregar y eliminar favoritos
+// Convierte IDs a string para evitar problemas de comparación (1 vs "1")
 const favoritesReducer = (state, action) => {
-  switch(action.type) {
-    case ADD_FAVORITE:
-      //Condicional para evitar duplicados
-      if (state.favorites.some(item => item.id === action.payload.id)) {
-        return state;
-      }
-
-      return {
-        ...state,
-        favorites: [...state.favorites, action.payload],
-      };
-
-    case REMOVE_FAVORITE:
-      return {
-        ...state,
-        favorites: state.favorites.filter(item => item.id !== action.payload.id),
-      };
-        
+  switch (action.type) {
+    case ADD_FAVORITE: {
+      const item = action.payload;
+      const id = String(item.id);
+      // Condicional para evitar duplicados
+      if (state.favorites.some(f => String(f.id) === id)) return state;
+      return { ...state, favorites: [...state.favorites, { ...item, id }] };
+    }
+    case REMOVE_FAVORITE: {
+      // Acepta tanto objeto {id: 1} como id directo (1)
+      const idToRemove = action.payload && typeof action.payload === 'object'
+        ? String(action.payload.id)
+        : String(action.payload);
+      return { ...state, favorites: state.favorites.filter(f => String(f.id) !== idToRemove) };
+    }
     default:
       return state;
   }
 };
 
-//Crear contexto
-const FavoritesContext = createContext();
+// =============================
+// INICIALIZADOR DESDE LOCALSTORAGE
+// =============================
+// Carga inicial desde localStorage o devuelve array vacío
+// Esta función se ejecuta UNA SOLA VEZ al crear el reducer
+const initializer = () => {
+  try {
+    const raw = localStorage.getItem('favorites');
+    if (!raw) return { favorites: [] };
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return { favorites: [] };
+    
+    // Usa Map para eliminar duplicados (por si hay datos corruptos)
+    const map = new Map();
+    parsed.forEach(item => {
+      if (!item || typeof item.id === 'undefined') return;
+      map.set(String(item.id), { ...item, id: String(item.id) });
+    });
+    return { favorites: Array.from(map.values()) };
+  } catch {
+    return { favorites: [] };
+  }
+};
 
-//Iniciamos la función Provider
-//children: son los componentes hijos que estarán dentro del Provider
-export const FavoritesProvider = ({children}) => {
-  //Iniciamos el hook useReducer
-  //state: estado actual (array vacío de favoritos)
-  //dispatch: función para enviar acciones al reducer
-  const [state, dispatch] = useReducer(favoritesReducer, inicial);
+// =============================
+// CONTEXTO
+// =============================
+const FavoritesContext = createContext(null);
 
-  //Iniciamos la función auxiliar 'addFavorite' que se encarga de agregar favoritos
-  //Dentro de ello llamamos a la función dispatch para que envíe la acción al reducer
-  //type: el tipo de acción (en este caso, ADD_FAVORITE)
-  //payload: los datos (el item a agregar) 
-  const addFavorite = (item) => {
-    dispatch({type: ADD_FAVORITE, payload: item});
-  };
+// =============================
+// PROVIDER
+// =============================
+// children: son los componentes hijos que estarán dentro del Provider
+export const FavoritesProvider = ({ children }) => {
+  // Iniciamos el hook useReducer
+  // state: estado actual del array de favoritos
+  // dispatch: función para enviar acciones al reducer
+  // initializer: función que carga datos desde localStorage SOLO la primera vez
+  const [state, dispatch] = React.useReducer(favoritesReducer, undefined, initializer);
 
-  //Iniciamos la función auxiliar 'removeFavorite' que se encarga de eliminar favoritos
-  //Hace lo mismo que addFavorite, pero en vez de agregar elimina favoritos
-  const removeFavorite = (item) => {
-    dispatch({type: REMOVE_FAVORITE, payload: item});
-  };
+  // =============================
+  // FUNCIONES AUXILIARES
+  // =============================
+  
+  // addFavorite: función que se encarga de agregar favoritos
+  // Usa useCallback para que no se recree en cada render (optimización)
+  // Dentro llamamos a dispatch para enviar la acción ADD_FAVORITE al reducer
+  const addFavorite = useCallback((cat) => {
+    if (!cat || typeof cat.id === 'undefined') return;
+    dispatch({ type: ADD_FAVORITE, payload: { ...cat, id: String(cat.id) } });
+  }, []);
 
-  //Iniciamos la función auxiliar 'isFavorite' que verifica si un item está en favoritos
-  //some: devuelve true si encuentra al menos un elemento que cumpla la condición
-  //Compara el id recibido con los id de los items en state.favorites
-  //Devuelve true si exite, false si no existe
-  const isFavorite = (id) => {
-    return state.favorites.some(item => item.id === id);
-  };
+  // removeFavorite: función que elimina favoritos
+  // Acepta tanto un objeto {id: 1} como solo el id (1)
+  const removeFavorite = useCallback((idOrObj) => {
+    const id = idOrObj && typeof idOrObj === 'object' ? idOrObj.id : idOrObj;
+    if (typeof id === 'undefined') return;
+    dispatch({ type: REMOVE_FAVORITE, payload: String(id) });
+  }, []);
 
-  //Creamos un objeto con todo lo que queremos compartir con los componentes
-  const value = {
+  // isFavorite: verifica si un item está en favoritos
+  // some: devuelve true si encuentra al menos un elemento que cumpla la condición
+  const isFavorite = useCallback((id) => {
+    if (typeof id === 'undefined') return false;
+    return state.favorites.some(f => String(f.id) === String(id));
+  }, [state.favorites]);
+
+  // =============================
+  // PERSISTENCIA EN LOCALSTORAGE
+  // =============================
+  // useEffect: guarda el estado en localStorage cada vez que cambie
+  // Se ejecuta DESPUÉS de cada render donde state.favorites cambió
+  useEffect(() => {
+    localStorage.setItem('favorites', JSON.stringify(state.favorites));
+  }, [state.favorites]);
+
+  // Creamos un objeto con todo lo que queremos compartir con los componentes
+  // useMemo evita recrear el objeto en cada render (optimización)
+  const value = useMemo(() => ({
     favorites: state.favorites,
     addFavorite,
     removeFavorite,
-    isFavorite
-  };
+    isFavorite,
+  }), [state.favorites, addFavorite, removeFavorite, isFavorite]);
 
-  //Renderizamos el Provider del contexto
+  // Renderizamos el Provider del contexto
   return (
     <FavoritesContext.Provider value={value}>
       {children}
@@ -88,11 +130,9 @@ export const FavoritesProvider = ({children}) => {
 // =============================
 // eslint-disable-next-line react-refresh/only-export-components
 export const useFavorites = () => {
-  const context = useContext(FavoritesContext);
-  if (!context) {
-    throw new Error('useFavorites debe ser usado dentro de FavoritesProvider');
-  }
-  return context;
+  const ctx = useContext(FavoritesContext);
+  if (!ctx) throw new Error('useFavorites debe usarse dentro de FavoritesProvider');
+  return ctx;
 };
 
 export default FavoritesContext;

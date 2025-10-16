@@ -5,11 +5,18 @@ import CatCard from '../../components/CatCard/CatCard';
 import Slider from '../../Slider/Slider';
 import { useEffect, useState } from 'react';
 import { readAllCats } from '../../service/catService';
+import { useLanguage } from '../../context/LanguageContext.jsx';
 
 const FavoritesPage = () => {
   const { favorites = [] } = useFavorites() || {}; // use 'favorites' from context, safe default
   const [cats, setCats] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { t, lang } = useLanguage();  // ← nada de setPage
+
+
+  useEffect(() => {
+    document.title = t('Favorites', 'title') || 'Bigotes Felices';
+  }, [t, lang]);
 
   useEffect(() => {
     let mounted = true;

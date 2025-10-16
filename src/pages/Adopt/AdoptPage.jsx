@@ -12,17 +12,9 @@ export default function AdoptPage() {
   }, [t, lang]);
 
   return (
-<<<<<<< HEAD
     <>
       <Header />
-      <div className="container mx-auto px-4 py-8">
-        <AdoptForm />
-      </div>
-    </>
-=======
-    <div className="adopt-page-container">
       <AdoptForm />
-    </div>
->>>>>>> origin/dev
+    </>
   );
 }

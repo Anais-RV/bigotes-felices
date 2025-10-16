@@ -33,5 +33,14 @@
     "home": "INICIO",
     "favorites": "FAVORITOS",
     "adopt": "ADOPTAR"
+  },
+  "Loading": {
+    "title": "Cargando...",
+    "message": "Por favor, espere un momento"
+  },
+  "Error": {
+    "title": "Error",
+    "message": "Algo salió mal",
+    "retry": "Por favor, recargue la página"
   }
 }

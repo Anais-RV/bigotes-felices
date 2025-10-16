@@ -33,5 +33,14 @@
     "home": "STARTSEITE",
     "favorites": "FAVORITEN",
     "adopt": "ADOPTIEREN"
+  },
+  "Loading": {
+    "title": "Laden...",
+    "message": "Bitte warten Sie einen Moment"
+  },
+  "Error": {
+    "title": "Fehler",
+    "message": "Etwas ist schief gelaufen",
+    "retry": "Bitte laden Sie die Seite neu"
   }
 }

@@ -4,12 +4,14 @@ import Slider from '../../Slider/Slider';
 import CatCard from '../../components/CatCard/CatCard';
 import { readAllCats } from '../../service/catService';
 import { useLanguage } from '../../context/LanguageContext.jsx';
+import './HomePage.css';
 
 export default function HomePage() {
   const [cats, setCats] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [selectedCatIndex, setSelectedCatIndex] = useState(null);
-  const { t, lang } = useLanguage();  // ← nada de setPage
+  const { t, lang } = useLanguage();
 
   // Título dinámico correcto
   useEffect(() => {
@@ -21,6 +23,9 @@ export default function HomePage() {
     let mounted = true;
     (async () => {
       try {
+        // Delay de 1.5s para simular carga real (bueno para demo)
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        
         const catsData = await readAllCats(10);
         if (!mounted) return;
         const withUiAge = catsData.map(c => ({
@@ -28,8 +33,10 @@ export default function HomePage() {
           uiAge: Math.floor(Math.random() * 10) + 1
         }));
         setCats(withUiAge);
-      } catch (error) {
-        console.error('Error fetching cats:', error);
+        setError(null);
+      } catch (err) {
+        console.error('Error fetching cats:', err);
+        if (mounted) setError('error');
       } finally {
         if (mounted) setLoading(false);
       }
@@ -38,6 +45,27 @@ export default function HomePage() {
   }, []);
 
   const selectedCat = selectedCatIndex !== null ? cats[selectedCatIndex] : null;
+
+  // Estado de carga
+  if (loading) {
+    return (
+      <div className="loading">
+        <h2>{t('Loading', 'title') || 'Cargando...'}</h2>
+        <p>{t('Loading', 'message') || 'Por favor, espere un momento'}</p>
+      </div>
+    );
+  }
+
+  // Estado de error
+  if (error) {
+    return (
+      <div className="error">
+        <h2>{t('Error', 'title') || 'Error'}</h2>
+        <p>{t('Error', 'message') || 'Algo salió mal'}</p>
+        <p>{t('Error', 'retry') || 'Por favor, recargue la página'}</p>
+      </div>
+    );
+  }
 
   return (
     <Header

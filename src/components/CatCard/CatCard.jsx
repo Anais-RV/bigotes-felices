@@ -10,6 +10,16 @@ export default function CatCard({ className, name, age, imgUrl, description, cat
     setFlipped((prev) => !prev);
   };
 
+  // Construir objeto cat para FavoriteButton
+  const cat = {
+    id: catId,
+    name: name,
+    age: age,
+    imgUrl: imgUrl,
+    image: imgUrl, // Alias para compatibilidad
+    description: description
+  };
+
   return (
     <div className={`card-container ${flipped ? 'flipped' : ''}`}>
       <div className="card-inner">
@@ -21,7 +31,7 @@ export default function CatCard({ className, name, age, imgUrl, description, cat
           </div>
 
           <div className="cat-actions">
-            <FavoriteButton className={className} catId={catId} />
+            <FavoriteButton className={className} cat={cat} />
           </div>
 
           {showDescriptionButtons && (

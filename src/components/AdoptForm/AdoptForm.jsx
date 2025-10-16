@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import { NavLink } from 'react-router-dom';
 import './AdoptForm.css';
 import Button from '../Button/Button';
 import { useLanguage } from '../../context/LanguageContext.jsx';
@@ -106,10 +105,6 @@ const AdoptForm = ({onSubmit}) => {
           name="reset"
         >
           {t('AdoptForm', 'reset')}
-        </Button>
-        {/** Boton Home */}
-        <Button type="button" id="homeButton" className="submit">
-          <NavLink to="/">{t('AdoptForm', 'home')}</NavLink>
         </Button>
       </div>
     </form>

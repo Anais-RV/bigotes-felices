@@ -95,3 +95,51 @@
 .adopt-form button[type="reset"]:hover {
   background-color: #6b7280;
 }
+
+/* ========================================
+   TEMA OSCURO
+   ======================================== */
+
+.dark .adopt-form h1 {
+  color: #e0e0e0;
+}
+
+.dark .adopt-form label,
+.dark .adopt-form legend {
+  color: #e0e0e0;
+}
+
+.dark .adopt-form input,
+.dark .adopt-form textarea {
+  background-color: #2a2a2a;
+  border-color: #555;
+  color: #e0e0e0;
+}
+
+.dark .adopt-form input:focus,
+.dark .adopt-form textarea:focus {
+  border-color: #5d7a4c;
+  box-shadow: 0 0 0 3px rgba(93, 122, 76, 0.3);
+}
+
+.dark .adopt-form .error-alert {
+  background-color: #4a2020;
+  color: #ffb3b3;
+}
+
+.dark .adopt-form button[type="submit"] {
+  background-color: #5d7a4c;
+}
+
+.dark .adopt-form button[type="submit"]:hover:not(:disabled) {
+  background-color: #4a6038;
+}
+
+.dark .adopt-form button[type="reset"] {
+  background-color: #555;
+}
+
+.dark .adopt-form button[type="reset"]:hover {
+  background-color: #444;
+}
+

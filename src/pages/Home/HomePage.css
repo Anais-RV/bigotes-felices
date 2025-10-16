@@ -98,7 +98,7 @@
 }
 
 /* Tema oscuro */
-:root.dark .loading {
+.dark .loading {
     background: linear-gradient(
         135deg,
         #3d5a2c,
@@ -109,17 +109,17 @@
     color: #c8e0b8;
 }
 
-:root.dark .loading h2,
-:root.dark .loading p {
+.dark .loading h2,
+.dark .loading p {
     color: #c8e0b8;
 }
 
-:root.dark .loading::before {
+.dark .loading::before {
     border-color: rgba(200, 224, 184, 0.2);
     border-top-color: #c8e0b8;
 }
 
-:root.dark .error {
+.dark .error {
     background: linear-gradient(
         135deg,
         #4a2020,
@@ -130,7 +130,7 @@
     color: #ffb3b3;
 }
 
-:root.dark .error h2,
-:root.dark .error p {
+.dark .error h2,
+.dark .error p {
     color: #ffb3b3;
 }

@@ -191,3 +191,57 @@
     max-width: 100%;
   }
 }
+
+/* ========================================
+   TEMA OSCURO
+   ======================================== */
+
+.dark .favorites-page {
+  background: #3d5a2c;
+  box-shadow: 10px 10px 3px rgba(0, 0, 0, 0.5);
+}
+
+.dark .favorites-page__title {
+  color: #c8e0b8;
+}
+
+.dark .favorites-page__header .button {
+  background: #5d7a4c;
+}
+
+.dark .favorites-page__header .button:hover {
+  background: #4a6038;
+  box-shadow: 0 4px 12px rgba(93, 122, 76, 0.4);
+}
+
+.dark .favorites-page__adopt-button {
+  background: #5d7a4c;
+}
+
+.dark .favorites-page__adopt-button:hover {
+  background: #4a6038;
+  box-shadow: 0 4px 12px rgba(93, 122, 76, 0.3);
+}
+
+.dark .empty-favorites {
+  background: #2a2a2a;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dark .empty-favorites h2 {
+  color: #8CA66E;
+}
+
+.dark .empty-favorites p {
+  color: #a0a0a0;
+}
+
+.dark .empty-favorites .button {
+  background: #5d7a4c;
+}
+
+.dark .empty-favorites .button:hover {
+  background: #4a6038;
+  box-shadow: 0 4px 12px rgba(93, 122, 76, 0.4);
+}
+

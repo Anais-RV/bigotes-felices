@@ -1,3 +1,4 @@
+import HeaderSimple from '../../components/Header/HeaderSimple';
 import AdoptForm from '../../components/AdoptForm/AdoptForm';
 import { useLanguage } from '../../context/LanguageContext.jsx';
 import { useEffect } from 'react';
@@ -11,8 +12,11 @@ export default function AdoptPage() {
   }, [t, lang]);
 
   return (
-    <div className="adopt-page-container">
-      <AdoptForm />
-    </div>
+    <>
+      <HeaderSimple />
+      <div className="adopt-page-container">
+        <AdoptForm />
+      </div>
+    </>
   );
 }

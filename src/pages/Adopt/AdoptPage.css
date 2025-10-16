@@ -78,3 +78,29 @@
     gap: 12px;
   }
 }
+
+/* ========================================
+   TEMA OSCURO
+   ======================================== */
+
+.dark .adopt-page-container {
+  background: #3d5a2c;
+  box-shadow: 10px 10px 3px rgba(0, 0, 0, 0.5);
+}
+
+.dark .adopt-page {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+}
+
+.dark .adopt-page__header h1 {
+  color: #c8e0b8;
+}
+
+.dark .adopt-page__header p {
+  color: #a0a0a0;
+}
+
+.dark .adopt-page__error {
+  color: #ff9999;
+}
+

@@ -4,7 +4,7 @@ import Pumagato from '../Pumagato/Pumagato';
 import './Header.theme.css';
 import './Header.css';
 
-export default function Header({ slider, catCard }) {
+export default function Header({ slider, catCard, showHomeButton = false }) {
   const pgSize = 60;
   const [isDark, setIsDark] = useState(false);
 
@@ -49,7 +49,9 @@ export default function Header({ slider, catCard }) {
           </div>
 
           <nav className='nav-actions'>
-            <NavLink to='/' className='nav-link'>HOME</NavLink>
+            {showHomeButton && (
+              <NavLink to='/' className='nav-link'>HOME</NavLink>
+            )}
             <NavLink to='/favorites' className='nav-link'>FAVORITOS</NavLink>
             <NavLink to='/adopt' className='nav-link'>ADOPTAR</NavLink>
           </nav>

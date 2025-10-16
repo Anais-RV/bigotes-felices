@@ -2,17 +2,14 @@
   "Home": {
     "title": "Home",
     "welcome": "Welcome to Bigotes Felices!",
-    "description": "Check out our kitties!!"
+    "description": "Discover our kitties"
   },
   "Favorites": {
     "title": "Favorites",
-    "heading": "My Favorites",
-    "back_button": "Back to Home",
-    "back_button_aria": "Go back to home page",
-    "empty_title": "No favorites yet",
-    "empty_message": "Explore our kitties and add some to your favorites!",
-    "adopt_button": "Adopt",
-    "adopt_cat": "Adopt"
+    "heading": "My favorite cats",
+    "emptyTitle": "You don’t have favorites yet",
+    "emptyText": "Explore our cats and add some to your favorites.",
+    "ctaAdopt": "Adopt"
   },
   "Adopt": {
     "title": "Adopt",

@@ -1,18 +1,15 @@
 {
   "Home": {
     "title": "Inicio",
-    "welcome": "¡Bienvenido a Bigotes Felices!",
-    "description": "¡Descubre nuestros michis!"
+    "welcome": "¡Bienvenida a Bigotes Felices!",
+    "description": "Descubre nuestros michis"
   },
   "Favorites": {
     "title": "Favoritos",
-    "heading": "Mis Favoritos",
-    "back_button": "Volver al Inicio",
-    "back_button_aria": "Volver a la página principal",
-    "empty_title": "No tienes favoritos",
-    "empty_message": "¡Explora nuestros gatitos y añade algunos a tus favoritos!",
-    "adopt_button": "Adoptar",
-    "adopt_cat": "Adoptar a"
+    "heading": "Mis gatitos favoritos",
+    "emptyTitle": "No tienes favoritos",
+    "emptyText": "Explora nuestros gatitos y añade algunos a tus favoritos.",
+    "ctaAdopt": "Adoptar"
   },
   "Adopt": {
     "title": "Adoptar",

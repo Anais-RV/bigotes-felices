@@ -2,20 +2,17 @@
   "Home": {
     "title": "Início",
     "welcome": "Bem-vindo ao Bigotes Felices!",
-    "description": "Descubra nossos gatinhos!"
+    "description": "Descubra nossos gatinhos e encontre seu companheiro ideal."
   },
   "Favorites": {
     "title": "Favoritos",
-    "heading": "Meus Favoritos",
-    "back_button": "Voltar ao Início",
-    "back_button_aria": "Voltar à página inicial",
-    "empty_title": "Sem favoritos",
-    "empty_message": "Explore nossos gatinhos e adicione alguns aos seus favoritos!",
-    "adopt_button": "Adotar",
-    "adopt_cat": "Adotar"
+    "heading": "Meus gatos favoritos",
+    "emptyTitle": "Você ainda não tem favoritos",
+    "emptyText": "Explore nossos gatinhos e adicione alguns aos seus favoritos.",
+    "ctaAdopt": "Adotar"
   },
   "Adopt": {
-    "title": "Adotar",
-    "cta": "Iniciar o processo de adoção"
+    "title": "Adoção",
+    "cta": "Inicie o processo de adoção"
   }
 }

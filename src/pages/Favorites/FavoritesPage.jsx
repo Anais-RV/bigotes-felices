@@ -2,15 +2,16 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useFavorites } from '../../context/FavoritesContext';
 import CatCard from '../../components/CatCard/CatCard';
 import Button from '../../components/Button/Button';
-import { useLanguage } from '../../context/LanguageContext';
-import { useEffect } from 'react';
 import './FavoritesPage.css';
+import { useLanguage } from '../../context/LanguageContext.jsx';
+import { useEffect } from 'react';
 
-const FavoritesPage = () => {
+export default function FavoritesPage() {
+  const { t, lang } = useLanguage();
   const { favorites = [] } = useFavorites() || {};
   const navigate = useNavigate();
-  const { t, lang } = useLanguage();
 
+  // Título dinámico correcto
   useEffect(() => {
     document.title = t('Favorites', 'title') || 'Bigotes Felices';
   }, [t, lang]);
@@ -21,59 +22,53 @@ const FavoritesPage = () => {
 
   return (
     <main className="favorites-page">
-      {/* Botón Volver al Inicio */}
+      {/* Volver al inicio */}
       <div className="favorites-page__header">
         <Link to="/">
-          <Button ariaLabel={t('Favorites', 'back_button_aria')}>
-            ← {t('Favorites', 'back_button')}
+          <Button ariaLabel="Volver a la página principal">
+            ← Volver al Inicio
           </Button>
         </Link>
       </div>
 
-      <h1 className="favorites-page__title">{t('Favorites', 'heading')}</h1>
+      <h1 className="favorites-page__title">
+        {t('Favorites', 'heading') || 'Mis Favoritos'}
+      </h1>
 
       <section className="favorites-page__section">
         {favorites.length === 0 ? (
           <div className="empty-favorites">
-            <h2>{t('Favorites', 'empty_title')}</h2>
-            <p>{t('Favorites', 'empty_message')}</p>
+            <h2>{t('Favorites', 'emptyTitle') || 'No tienes favoritos'}</h2>
+            <p>{t('Favorites', 'emptyText') || 'Explora nuestros gatitos y añade algunos a tus favoritos.'}</p>
             <Link to="/adopt">
-              <Button>{t('Favorites', 'adopt_button')}</Button>
+              <Button ariaLabel="Ir a adoptar">
+                {t('Favorites', 'ctaAdopt') || 'Adoptar'}
+              </Button>
             </Link>
           </div>
         ) : (
-          favorites.map((cat) => {
-            const id = cat.id || cat.catId; // compatibilidad
-            const name = cat.name || 'Gato sin nombre';
-            const img = cat.image || cat.imgUrl || '';
-            const description = cat.description || cat.desc || 'Sin descripción';
-            const age = cat.age || 'Edad desconocida';
-
-            return (
-              <div key={id} className="favorites-page__card-wrapper">
-                <CatCard
-                  catId={id}
-                  name={name}
-                  age={age}
-                  imgUrl={img}
-                  description={description}
-                  showDescriptionButtons={true}
-                />
-
-                <Button
-                  onClick={() => handleAdopt(id)}
-                  className="favorites-page__adopt-button"
-                  ariaLabel={`${t('Favorites', 'adopt_cat')} ${name}`}
-                >
-                  {t('Favorites', 'adopt_cat')} {name}
-                </Button>
-              </div>
-            );
-          })
+          favorites.map((cat) => (
+            <div key={cat.id} className="favorites-page__card-wrapper">
+              <CatCard
+                name={cat.name}
+                age={cat.age}
+                imgUrl={cat.imgUrl || cat.image}
+                description={cat.description}
+                catId={cat.id}
+                showDescriptionButtons={true}
+                showHomeButton={true}
+              />
+              <Button
+                onClick={() => handleAdopt(cat.id)}
+                className="favorites-page__adopt-button"
+                ariaLabel={`${t('Favorites', 'ctaAdopt')} ${cat.name}`}
+              >
+                {t('Favorites', 'ctaAdopt')} {cat.name}
+              </Button>
+            </div>
+          ))
         )}
       </section>
     </main>
   );
-};
-
-export default FavoritesPage;
+}

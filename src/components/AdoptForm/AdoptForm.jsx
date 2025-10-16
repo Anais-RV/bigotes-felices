@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { NavLink } from 'react-router-dom';
 import './AdoptForm.css';
 import Button from '../Button/Button';
 
@@ -37,56 +38,78 @@ const AdoptForm = ({onSubmit}) => {
     <form onSubmit={handleSubmit}>
       <h1>Formulario de adopción</h1>
       <fieldset>
-        <legend><label htmlFor="fullname">Nombre completo:</label></legend>
-        <input 
-          type='text' 
-          id='fullname' 
-          className='fullname' 
+        <legend>
+          <label htmlFor="fullname">Nombre completo:</label>
+        </legend>
+        <input
+          type="text"
+          id="fullname"
+          className="fullname"
           value={fullname}
-          onChange={(e) => setFullname(e.target.value)}
-          placeholder='Juan Cachopo' 
-          required />
+          onChange={e => setFullname(e.target.value)}
+          placeholder="Juan Cachopo"
+          required
+        />
       </fieldset>
       <fieldset>
-        <legend><label htmlFor="email">Correo electrónico: </label></legend>
-        <input 
-          type='email' 
-          id='email' 
-          className="email" 
+        <legend>
+          <label htmlFor="email">Correo electrónico: </label>
+        </legend>
+        <input
+          type="email"
+          id="email"
+          className="email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="juancachopo@gmail.com" 
-          required />
+          onChange={e => setEmail(e.target.value)}
+          placeholder="juancachopo@gmail.com"
+          required
+        />
       </fieldset>
       <fieldset>
-        <legend><label htmlFor="phone">Teléfono: </label></legend>
-        <input 
-          type='text' 
-          id='phone' 
-          className='phone' 
+        <legend>
+          <label htmlFor="phone">Teléfono: </label>
+        </legend>
+        <input
+          type="text"
+          id="phone"
+          className="phone"
           value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          placeholder='985123123' />
+          onChange={e => setPhone(e.target.value)}
+          placeholder="985123123"
+        />
       </fieldset>
       <fieldset>
-        <legend><label htmlFor="message">Mensaje: </label></legend>
-        <textarea 
-          id='message' 
-          className='message' 
+        <legend>
+          <label htmlFor="message">Mensaje: </label>
+        </legend>
+        <textarea
+          id="message"
+          className="message"
           value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          placeholder='Danos su opinión...'>
-
-        </textarea>
+          onChange={e => setMessage(e.target.value)}
+          placeholder="Danos su opinión..."
+        ></textarea>
       </fieldset>
-      {/** Boton Enviar */}
-      <Button type="submit" id="submit" className="submit">
-        Enviar
-      </Button>
-      {/** Boton Reiniciar */}
-      <Button type='button' onClick={handleReset} className="submit" id="reset" name="reset">
-        Reiniciar
-      </Button>
+      <div className="button-group">
+        {/** Boton Enviar */}
+        <Button type="submit" id="submit" className="submit">
+          Enviar
+        </Button>
+        {/** Boton Reiniciar */}
+        <Button
+          type="button"
+          onClick={handleReset}
+          className="submit"
+          id="reset"
+          name="reset"
+        >
+          Reiniciar
+        </Button>
+        {/** Boton Home */}
+        <Button type="button" id="homeButton" className="submit">
+          <NavLink to="/">Home</NavLink>
+        </Button>
+      </div>
     </form>
   );
 };

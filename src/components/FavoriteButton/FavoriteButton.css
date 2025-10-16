@@ -1,6 +1,7 @@
 .favorite-button {
   box-sizing: border-box;
   background: transparent;
+  margin-top: 0.2rem;
   border: none;
   border-radius: 50%;
   width: 40px;

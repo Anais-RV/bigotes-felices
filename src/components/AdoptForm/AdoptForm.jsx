@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import './AdoptForm.css';
+import Button from '../Button/Button';
 
 // Declaramos funcion AdoptForm con el prop onSubmit
 const AdoptForm = ({onSubmit}) => {
@@ -77,12 +79,14 @@ const AdoptForm = ({onSubmit}) => {
 
         </textarea>
       </fieldset>
-      <button type='submit' id="submit" className="submit">
-            Enviar
-      </button>
-      <button type='button' onClick={handleReset} id="reset" name="reset">
-            Reiniciar
-      </button> 
+      {/** Boton Enviar */}
+      <Button type="submit" id="submit" className="submit">
+        Enviar
+      </Button>
+      {/** Boton Reiniciar */}
+      <Button type='button' onClick={handleReset} className="submit" id="reset" name="reset">
+        Reiniciar
+      </Button>
     </form>
   );
 };

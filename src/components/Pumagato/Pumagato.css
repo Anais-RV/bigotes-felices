@@ -6,6 +6,7 @@
   width: var(--pg-size);
   height: calc(var(--pg-size) * 1.1);
   cursor: pointer;
+  background: transparent;
 }
 
 .pumagato .pg-svg { width: 100%; height: 100%; display: block; }

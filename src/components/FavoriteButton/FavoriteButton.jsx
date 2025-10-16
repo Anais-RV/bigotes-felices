@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useFavorites } from '../../context/FavoritesContext';
+import { useFavorites } from '../../hooks/useFavorites';
 import HeartWhite from '../../icons/HeartWhite';
 import HeartOutline from '../../icons/HeartOutline';
 import Button from '../Button';

@@ -8,6 +8,7 @@ import { useLanguage } from '../../context/LanguageContext.jsx';
 export default function HomePage() {
   const [cats, setCats] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedCatIndex, setSelectedCatIndex] = useState(null);
   const { t, lang } = useLanguage();  // ← nada de setPage
 
   // Título dinámico correcto
@@ -36,25 +37,28 @@ export default function HomePage() {
     return () => { mounted = false; };
   }, []);
 
-  const currentCat = cats[0];
+  const selectedCat = selectedCatIndex !== null ? cats[selectedCatIndex] : null;
 
   return (
     <Header
-      slider={<Slider />}
+      slider={<Slider cats={cats}
+        onSelectCat={setSelectedCatIndex} 
+      />
+      }
       catCard={
         loading ? (
           <div>Cargando gatos...</div>
-        ) : currentCat ? (
+        ) : selectedCat ? (
           <CatCard
-            name={currentCat.breeds?.[0]?.name || 'Gato Misterioso'}
-            age={currentCat.uiAge}
-            imgUrl={currentCat.url}
-            description={currentCat.breeds?.[0]?.description || 'Un gato adorable esperando un hogar lleno de amor.'}
-            catId={currentCat.id}
+            name={selectedCat.breeds?.[0]?.name || 'Gato Misterioso'}
+            age={selectedCat.uiAge}
+            imgUrl={selectedCat.url}
+            description={selectedCat.breeds?.[0]?.description || 'Un gato adorable esperando un hogar lleno de amor.'}
+            catId={selectedCat.id}
             showDescriptionButtons={false}
           />
         ) : (
-          <div>No hay gatos disponibles</div>
+          <div>Aún no has seleccionado ningún gato</div>
         )
       }
     />

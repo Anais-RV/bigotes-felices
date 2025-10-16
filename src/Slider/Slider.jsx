@@ -3,36 +3,35 @@ import PreviousButton from '../components/Buttons/PreviousButton';
 import NextButton from '../components/Buttons/NextButton';
 import './Slider.css';
 
-// Carga todo desde ../../assets/images (raíz del proyecto)
-const modules = import.meta.glob('../../assets/images/*.{png,jpg,jpeg,webp,gif}', {
-  eager: true,
-  import: 'default'
-});
-
-const images = Object.entries(modules)
-  .sort(([a], [b]) => a.localeCompare(b))
-  .map(([, url]) => url);
-
-export default function Slider() {
+export default function Slider({ cats = [], onSelectCat }) {
   const [index, setIndex] = useState(0);
 
-  const next = () => setIndex(i => (i + 1) % images.length);
-  const prev = () => setIndex(i => (i - 1 + images.length) % images.length);
-
-  if (images.length === 0) {
+  if (cats.length === 0) {
     return (
       <div className="slider">
         <h2>Slider de gatos</h2>
-        <p>No se encontraron imágenes en <code>assets/images</code></p>
+        <p>No hay gatos disponibles.</p>
       </div>
     );
   }
 
+  const next = () => {
+    setIndex((prev) => (prev + 1) % cats.length);
+  };
+
+  const prev = () => {
+    setIndex((prev) => (prev - 1 + cats.length) % cats.length);
+  };
+
+  const handleImageClick = () => {
+    if (onSelectCat) onSelectCat(index);
+  };
+
   return (
     <div className="slider">
-      <div className="slider-window">
+      <div className="slider-window" onClick={handleImageClick}>
         <img 
-          src={images[index]} 
+          src={cats[index].url} 
           alt={`Gato ${index + 1}`} 
           className="slider-image" 
           draggable="false" 

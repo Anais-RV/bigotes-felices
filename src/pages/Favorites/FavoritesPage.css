@@ -50,6 +50,27 @@
   align-items: center;
 }
 
+.favorites-page__card-wrapper .card-container {
+  max-width: 320px;
+  width: 100%;
+}
+
+.favorites-page__card-wrapper .card-inner {
+  height: 427px;
+}
+
+.favorites-page__card-wrapper .card-photo {
+  height: 320px;
+  overflow: hidden;
+}
+
+.favorites-page__card-wrapper .cat-image {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
+}
+
 .favorites-page__adopt-button {
   width: 100%;
   max-width: 320px;

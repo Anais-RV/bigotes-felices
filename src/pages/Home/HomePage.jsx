@@ -69,6 +69,7 @@ const HomePage = () => {
       <div className='error'>
         <h2>Error</h2>
         <p>Algo salió mal</p>
+        <p>Revise y vuelva a intentarlo</p>
       </div>
     );
   }

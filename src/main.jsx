@@ -10,9 +10,9 @@ import { LanguageProvider } from './context/LanguageContext.jsx';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <LanguageProvider>
-    <FavoritesProvider>
-      <App />
-    </FavoritesProvider>
-  </LanguageProvider>
+      <FavoritesProvider>
+        <App />
+      </FavoritesProvider>
+    </LanguageProvider>
   </StrictMode>
 );

@@ -56,7 +56,7 @@ export default function FavoritesPage() {
                 description={cat.description}
                 catId={cat.id}
                 showDescriptionButtons={true}
-                showHomeButton={true}
+                
               />
               <Button
                 onClick={() => handleAdopt(cat.id)}

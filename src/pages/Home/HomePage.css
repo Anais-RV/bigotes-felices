@@ -1,0 +1,136 @@
+/* ========================================
+   ESTADOS DE CARGA Y ERROR
+   ======================================== */
+
+.loading, .error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 3rem;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    min-width: 300px;
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -45%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Estado de carga - Verde tema */
+.loading {
+    border: 3px solid #B8D498;
+    background: linear-gradient(
+        135deg,
+        #d4e8c8,
+        #B8D498,
+        #a8c788
+    );
+    color: #2d5016;
+}
+
+.loading h2 {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2d5016;
+}
+
+.loading p {
+    margin: 0;
+    font-size: 1rem;
+    color: #3d6020;
+}
+
+/* Spinner animado */
+.loading::before {
+    content: '';
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(45, 80, 22, 0.1);
+    border-top: 4px solid #2d5016;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Estado de error - Rojo suave */
+.error {
+    border: 3px solid #ff6b6b;
+    background: linear-gradient(
+        135deg,
+        #ffe0e0,
+        #ffb3b3,
+        #ff9999
+    );
+    color: #8b0000;
+}
+
+.error h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #8b0000;
+}
+
+.error p {
+    margin: 0.25rem 0;
+    font-size: 1rem;
+    color: #a52a2a;
+}
+
+/* Tema oscuro */
+.dark .loading {
+    background: linear-gradient(
+        135deg,
+        #3d5a2c,
+        #2d4a1c,
+        #1d3a0c
+    );
+    border-color: #5d7a4c;
+    color: #c8e0b8;
+}
+
+.dark .loading h2,
+.dark .loading p {
+    color: #c8e0b8;
+}
+
+.dark .loading::before {
+    border-color: rgba(200, 224, 184, 0.2);
+    border-top-color: #c8e0b8;
+}
+
+.dark .error {
+    background: linear-gradient(
+        135deg,
+        #4a2020,
+        #3a1010,
+        #2a0808
+    );
+    border-color: #8b3a3a;
+    color: #ffb3b3;
+}
+
+.dark .error h2,
+.dark .error p {
+    color: #ffb3b3;
+}

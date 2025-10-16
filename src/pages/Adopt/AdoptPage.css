@@ -1,0 +1,106 @@
+/* AdoptPage.css - Estilos para la página de adopción */
+
+.adopt-page-container {
+  max-width: 400px;
+  font-family: 'Poppins', sans-serif;
+  margin: 24px auto;
+  padding: 1rem;
+  background: #B8D498;
+  border-radius: 24px;
+  box-shadow: 10px 10px 3px rgba(0, 0, 0, 0.22);
+  box-sizing: border-box;
+}
+
+.adopt-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  padding: 40px 20px;
+}
+
+.adopt-page__header {
+  text-align: center;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.adopt-page__header h1 {
+  font-size: 2.5rem;
+  color: #2d5016;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.adopt-page__header p {
+  font-size: 1.2rem;
+  color: #4a5568;
+  margin: 0;
+}
+
+.adopt-page__error {
+  color: #e53e3e;
+  font-weight: 600;
+}
+
+/* Grid de gatos */
+.adopt-page__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .adopt-page {
+    padding: 20px 16px;
+  }
+  
+  .adopt-page__header h1 {
+    font-size: 2rem;
+  }
+  
+  .adopt-page__header p {
+    font-size: 1rem;
+  }
+  
+  .adopt-page__grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .adopt-page__grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+/* ========================================
+   TEMA OSCURO
+   ======================================== */
+
+.dark .adopt-page-container {
+  background: #3d5a2c;
+  box-shadow: 10px 10px 3px rgba(0, 0, 0, 0.5);
+}
+
+.dark .adopt-page {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+}
+
+.dark .adopt-page__header h1 {
+  color: #c8e0b8;
+}
+
+.dark .adopt-page__header p {
+  color: #a0a0a0;
+}
+
+.dark .adopt-page__error {
+  color: #ff9999;
+}
+

@@ -1,0 +1,52 @@
+.favorite-button {
+  box-sizing: border-box;
+  background: transparent;
+  margin-top: 0.2rem;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all .3s ease;
+  padding: 0;
+}
+
+.favorite-button:hover {
+  background: rgba(140, 166, 110, 0.1);
+  transform: scale(1.15);
+}
+
+.favorite-button:active {
+  transform: scale(.9);
+}
+
+.favorite-button--active {
+  background: rgba(79, 107, 42, 0.15);
+}
+
+.favorite-button svg {
+  transition: all .3s ease;
+}
+
+.favorite-button:hover svg {
+  filter: drop-shadow(0 2px 4px rgba(79, 107, 42, 0.3));
+}
+
+.favorite-button--active svg {
+  animation: heartBeat 0.4s ease-in-out;
+}
+
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.2); }
+  50% { transform: scale(0.95); }
+  75% { transform: scale(1.1); }
+}
+
+.favorite-button:focus {
+  outline: 2px solid #8CA66E;
+  outline-offset: 2px;
+}

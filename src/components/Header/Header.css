@@ -1,0 +1,246 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('../../assets/images/fondo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.top-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: #B8D498;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  height: calc(var(--header-size, 56px) + 6px);
+  min-height: calc(var(--header-size, 56px) + 6px);
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.22);
+  border-radius: 0 0 20px 20px;
+}
+
+.brand {
+  margin: 0;
+  padding: 0;
+  font-size: clamp(16px, 1.8vw, 20px);
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.header-actions,
+.header-cat {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  height: 100%;
+}
+
+.pumagato {
+  width: var(--pg-size, var(--header-size, 56px));
+  height: var(--pg-size, var(--header-size, 56px));
+  line-height: 0;
+  cursor: pointer;
+  user-select: none;
+  border: none !important;
+  background: transparent !important;  
+} 
+
+.pumagato .pg-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+}
+
+/* .pumagato-toggle {
+  border: none !important;
+  background: red;
+
+} */
+
+.prueba-rusa {
+  background: none;
+  border: none;
+}
+
+.navbar {
+  width: 400px;
+  margin: 24px auto;
+  background: #B8D498;
+  border-radius: 24px;
+  box-shadow: 10px 10px 3px rgba(0, 0, 0, 0.22);
+  padding: 16px;
+  box-sizing: border-box;
+  display: block;
+}
+
+.navbar-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.nav-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 18px;
+}
+
+.nav-link {
+  flex: 1;
+  text-align: center;
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: #8CA66E;
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+  display: inline-block;
+}
+
+.nav-link:hover {
+  background: #8CA66E;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(140, 166, 110, 0.3);
+}
+
+.nav-link:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18) inset;
+}
+
+.nav-link.active {
+  outline: 2px solid rgba(0, 0, 0, 0.25);
+  outline-offset: 2px;
+}
+
+.slider-placeholder {
+  background: #ffffff;
+  border-radius: 24px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 14px 28px -14px #556741;
+} 
+
+.slider-placeholder > * {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.slider-placeholder * {
+  box-sizing: border-box;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.slider-placeholder img,
+.slider-placeholder video,
+.slider-placeholder canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.modal-box {
+  background: #ffffff;
+  border-radius: 24px;
+  width: 320px;
+  min-height: 360px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  text-align: center;
+  font-weight: 600;
+  box-shadow: inset 0 14px 28px -14px #556741;
+  overflow: hidden;
+}
+
+.site-chrome {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: transform 0.28s ease;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.site-chrome.is-hidden {
+  transform: translateY(-100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-chrome {
+    transition: none;
+  }
+}
+
+/* ========================================
+   NAVBAR SIMPLE (para páginas no-Home)
+   ======================================== */
+
+.navbar-simple {
+  width: 400px;
+  max-width: 90%;
+  margin: 24px auto;
+  background: #B8D498;
+  border-radius: 24px;
+  box-shadow: 10px 10px 3px rgba(0, 0, 0, 0.22);
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.nav-actions-simple {
+  display: flex;
+  gap: 18px;
+  width: 100%;
+}
+
+.nav-actions-simple .nav-link {
+  flex: 1;
+}
+
+/* Responsive para móviles */
+@media (max-width: 480px) {
+  .navbar-simple {
+    width: 95%;
+    margin: 16px auto;
+    padding: 12px;
+  }
+
+  .nav-actions-simple {
+    gap: 12px;
+  }
+
+  .nav-link {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+}

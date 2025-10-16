@@ -1,0 +1,46 @@
+{
+  "Home": {
+    "title": "Startseite",
+    "welcome": "Willkommen bei Bigotes Felices!",
+    "description": "Entdecke unsere Katzen und finde deinen idealen Begleiter."
+  },
+  "Favorites": {
+    "title": "Favoriten",
+    "heading": "Meine Lieblingskatzen",
+    "emptyTitle": "Du hast noch keine Favoriten",
+    "emptyText": "Erkunde unsere Katzen und füge einige zu deinen Favoriten hinzu.",
+    "ctaAdopt": "Adoptieren"
+  },
+  "Adopt": {
+    "title": "Adoptieren",
+    "cta": "Starte den Adoptionsprozess"
+  },
+  "AdoptForm": {
+    "heading": "Adoptionsformular",
+    "fullname": "Vollständiger Name:",
+    "fullnamePlaceholder": "Hans Müller",
+    "email": "E-Mail:",
+    "emailPlaceholder": "hansmueller@gmail.com",
+    "phone": "Telefon:",
+    "phonePlaceholder": "+49 151 12345678",
+    "message": "Nachricht:",
+    "messagePlaceholder": "Teilen Sie uns Ihre Meinung mit...",
+    "submit": "Senden",
+    "reset": "Zurücksetzen",
+    "home": "Startseite"
+  },
+  "Navigation": {
+    "home": "STARTSEITE",
+    "favorites": "FAVORITEN",
+    "adopt": "ADOPTIEREN"
+  },
+  "Loading": {
+    "title": "Laden...",
+    "message": "Bitte warten Sie einen Moment"
+  },
+  "Error": {
+    "title": "Fehler",
+    "message": "Etwas ist schief gelaufen",
+    "retry": "Bitte laden Sie die Seite neu"
+  }
+}

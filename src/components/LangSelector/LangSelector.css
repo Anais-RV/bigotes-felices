@@ -1,0 +1,30 @@
+.language-selector {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 2px solid var(--border-color, #333);
+  background-color: var(--card-bg, #fff);
+  color: var(--text-color, #333);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.language-selector:hover {
+  border-color: var(--primary-color, #4CAF50);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.language-selector:focus {
+  border-color: var(--primary-color, #4CAF50);
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+/* Tema oscuro */
+.dark .language-selector {
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+  border-color: #555;
+}

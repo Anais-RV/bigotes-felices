@@ -1,0 +1,46 @@
+{
+  "Home": {
+    "title": "Início",
+    "welcome": "Bem-vindo ao Bigotes Felices!",
+    "description": "Descubra nossos gatinhos e encontre seu companheiro ideal."
+  },
+  "Favorites": {
+    "title": "Favoritos",
+    "heading": "Meus gatos favoritos",
+    "emptyTitle": "Você ainda não tem favoritos",
+    "emptyText": "Explore nossos gatinhos e adicione alguns aos seus favoritos.",
+    "ctaAdopt": "Adotar"
+  },
+  "Adopt": {
+    "title": "Adoção",
+    "cta": "Inicie o processo de adoção"
+  },
+  "AdoptForm": {
+    "heading": "Formulário de Adoção",
+    "fullname": "Nome Completo:",
+    "fullnamePlaceholder": "João Silva",
+    "email": "E-mail:",
+    "emailPlaceholder": "joaosilva@gmail.com",
+    "phone": "Telefone:",
+    "phonePlaceholder": "11 98765-4321",
+    "message": "Mensagem:",
+    "messagePlaceholder": "Conte-nos sua opinião...",
+    "submit": "Enviar",
+    "reset": "Limpar",
+    "home": "Início"
+  },
+  "Navigation": {
+    "home": "INÍCIO",
+    "favorites": "FAVORITOS",
+    "adopt": "ADOTAR"
+  },
+  "Loading": {
+    "title": "Carregando...",
+    "message": "Por favor, aguarde um momento"
+  },
+  "Error": {
+    "title": "Erro",
+    "message": "Algo deu errado",
+    "retry": "Por favor, recarregue a página"
+  }
+}

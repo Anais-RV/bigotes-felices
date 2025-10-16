@@ -1,0 +1,8 @@
+/* FieldError.css - Estilos para mensajes de error de campo */
+
+.field-error {
+  color: #dc2626;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: block;
+}

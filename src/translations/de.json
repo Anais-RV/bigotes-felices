@@ -14,5 +14,24 @@
   "Adopt": {
     "title": "Adoptieren",
     "cta": "Starte den Adoptionsprozess"
+  },
+  "AdoptForm": {
+    "heading": "Adoptionsformular",
+    "fullname": "Vollständiger Name:",
+    "fullnamePlaceholder": "Hans Müller",
+    "email": "E-Mail:",
+    "emailPlaceholder": "hansmueller@gmail.com",
+    "phone": "Telefon:",
+    "phonePlaceholder": "+49 151 12345678",
+    "message": "Nachricht:",
+    "messagePlaceholder": "Teilen Sie uns Ihre Meinung mit...",
+    "submit": "Senden",
+    "reset": "Zurücksetzen",
+    "home": "Startseite"
+  },
+  "Navigation": {
+    "home": "STARTSEITE",
+    "favorites": "FAVORITEN",
+    "adopt": "ADOPTIEREN"
   }
 }

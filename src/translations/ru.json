@@ -14,5 +14,24 @@
   "Adopt": {
     "title": "Усыновить",
     "cta": "Начать процесс усыновления"
+  },
+  "AdoptForm": {
+    "heading": "Форма усыновления",
+    "fullname": "Полное имя:",
+    "fullnamePlaceholder": "Иван Иванов",
+    "email": "Электронная почта:",
+    "emailPlaceholder": "ivanov@gmail.com",
+    "phone": "Телефон:",
+    "phonePlaceholder": "+7 999 123-45-67",
+    "message": "Сообщение:",
+    "messagePlaceholder": "Расскажите нам ваше мнение...",
+    "submit": "Отправить",
+    "reset": "Сбросить",
+    "home": "Главная"
+  },
+  "Navigation": {
+    "home": "ГЛАВНАЯ",
+    "favorites": "ИЗБРАННОЕ",
+    "adopt": "УСЫНОВИТЬ"
   }
 }

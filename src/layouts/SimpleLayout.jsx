@@ -1,8 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import HeaderTop from './HeaderTop';
+import { useLanguage } from '../context/LanguageContext.jsx';
 import './Header.css';
 
 export default function SimpleLayout({ children }) {
+  const { t } = useLanguage();
   return (
     <>
       <HeaderTop />
@@ -19,9 +21,9 @@ export default function SimpleLayout({ children }) {
         borderRadius: '0 0 32px 32px',
         marginBottom: '20px'
       }}>
-        <NavLink to="/" className="nav-link">HOME</NavLink>
-        <NavLink to="/favorites" className="nav-link">FAVORITOS</NavLink>
-        <NavLink to="/adopt" className="nav-link">ADOPTAR</NavLink>
+        <NavLink to="/" className="nav-link">{t('Navigation', 'home')}</NavLink>
+        <NavLink to="/favorites" className="nav-link">{t('Navigation', 'favorites')}</NavLink>
+        <NavLink to="/adopt" className="nav-link">{t('Navigation', 'adopt')}</NavLink>
       </nav>
 
       {/* Contenido de la página */}

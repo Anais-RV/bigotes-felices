@@ -14,5 +14,24 @@
   "Adopt": {
     "title": "Adopt",
     "cta": "Start the adoption process"
+  },
+  "AdoptForm": {
+    "heading": "Adoption Form",
+    "fullname": "Full Name:",
+    "fullnamePlaceholder": "John Doe",
+    "email": "Email:",
+    "emailPlaceholder": "johndoe@gmail.com",
+    "phone": "Phone:",
+    "phonePlaceholder": "555-123-4567",
+    "message": "Message:",
+    "messagePlaceholder": "Tell us your thoughts...",
+    "submit": "Submit",
+    "reset": "Reset",
+    "home": "Home"
+  },
+  "Navigation": {
+    "home": "HOME",
+    "favorites": "FAVORITES",
+    "adopt": "ADOPT"
   }
 }

@@ -1,6 +1,6 @@
 import Header from '../../components/Header/Header';
 import { Link } from 'react-router-dom';
-import { useFavorites } from '../../context/FavoritesContext';
+import { useFavorites } from '../../hooks/useFavorites';
 import CatCard from '../../components/CatCard/CatCard';
 import Slider from '../../Slider/Slider';
 import { useEffect, useState } from 'react';

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer} from 'react';
+import React, { createContext, useReducer } from 'react';
 
 //Acciones
 const ADD_FAVORITE = 'ADD_FAVORITE';
@@ -81,15 +81,6 @@ export const FavoritesProvider = ({children}) => {
       {children}
     </FavoritesContext.Provider>
   );
-};
-
-// Hook personalizado para usar el contexto
-export const useFavorites = () => {
-  const context = useContext(FavoritesContext);
-  if (!context) {
-    throw new Error('useFavorites debe ser usado dentro de FavoritesProvider');
-  }
-  return context;
 };
 
 export default FavoritesContext;

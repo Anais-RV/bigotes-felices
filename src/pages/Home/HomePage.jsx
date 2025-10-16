@@ -7,19 +7,14 @@ import './HomePage.css';
 import { readAllCats } from '../../service/catService';
 import { useLanguage } from '../../context/LanguageContext.jsx';
 
-<<<<<<< HEAD
 const HomePage = () => {
 
   //Cambios en las variables
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [cats, setCats] = useState([]);
-=======
-export default function HomePage() {
-  const [cats, setCats] = useState([]);
-  const [loading, setLoading] = useState(true);
   const { t, lang } = useLanguage();  // ← nada de setPage
->>>>>>> origin/dev
+
 
   // Título dinámico correcto
   useEffect(() => {
@@ -31,21 +26,10 @@ export default function HomePage() {
     let mounted = true;
     (async () => {
       try {
-<<<<<<< HEAD
 
         //Delay en red (tiempo de espera 1.5 segundos)
         await new Promise(resolve => setTimeout(resolve, 1500));
 
-        const catsData = await readAllCats(10); // Cargar 10 gatos
-        setCats(catsData);
-        setLoading(false);
-        setError(null);
-
-      } catch (error) {
-        console.error('Error fetching cats:', error);
-        setLoading(false);
-        setError('Error en pantalla de carga.');
-=======
         const catsData = await readAllCats(10);
         if (!mounted) return;
         const withUiAge = catsData.map(c => ({
@@ -53,11 +37,15 @@ export default function HomePage() {
           uiAge: Math.floor(Math.random() * 10) + 1
         }));
         setCats(withUiAge);
+        setLoading(false);
+        setError(null);
+
       } catch (error) {
         console.error('Error fetching cats:', error);
+        setLoading(false);
+        setError('Error in loading page.');
       } finally {
         if (mounted) setLoading(false);
->>>>>>> origin/dev
       }
     })();
     return () => { mounted = false; };
@@ -107,11 +95,7 @@ export default function HomePage() {
       }
     />
   );
-<<<<<<< HEAD
 
 };
 
 export default HomePage;
-=======
-}
->>>>>>> origin/dev

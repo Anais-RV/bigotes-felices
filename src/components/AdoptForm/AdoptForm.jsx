@@ -2,9 +2,11 @@ import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import './AdoptForm.css';
 import Button from '../Button/Button';
+import { useLanguage } from '../../context/LanguageContext.jsx';
 
 // Declaramos funcion AdoptForm con el prop onSubmit
 const AdoptForm = ({onSubmit}) => {
+  const { t } = useLanguage();
 
   //Estado local por campo
   const [fullname, setFullname] = useState('');
@@ -36,10 +38,10 @@ const AdoptForm = ({onSubmit}) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Formulario de adopción</h1>
+      <h1>{t('AdoptForm', 'heading')}</h1>
       <fieldset>
         <legend>
-          <label htmlFor="fullname">Nombre completo:</label>
+          <label htmlFor="fullname">{t('AdoptForm', 'fullname')}</label>
         </legend>
         <input
           type="text"
@@ -47,13 +49,13 @@ const AdoptForm = ({onSubmit}) => {
           className="fullname"
           value={fullname}
           onChange={e => setFullname(e.target.value)}
-          placeholder="Juan Cachopo"
+          placeholder={t('AdoptForm', 'fullnamePlaceholder')}
           required
         />
       </fieldset>
       <fieldset>
         <legend>
-          <label htmlFor="email">Correo electrónico: </label>
+          <label htmlFor="email">{t('AdoptForm', 'email')}</label>
         </legend>
         <input
           type="email"
@@ -61,13 +63,13 @@ const AdoptForm = ({onSubmit}) => {
           className="email"
           value={email}
           onChange={e => setEmail(e.target.value)}
-          placeholder="juancachopo@gmail.com"
+          placeholder={t('AdoptForm', 'emailPlaceholder')}
           required
         />
       </fieldset>
       <fieldset>
         <legend>
-          <label htmlFor="phone">Teléfono: </label>
+          <label htmlFor="phone">{t('AdoptForm', 'phone')}</label>
         </legend>
         <input
           type="text"
@@ -75,25 +77,25 @@ const AdoptForm = ({onSubmit}) => {
           className="phone"
           value={phone}
           onChange={e => setPhone(e.target.value)}
-          placeholder="985123123"
+          placeholder={t('AdoptForm', 'phonePlaceholder')}
         />
       </fieldset>
       <fieldset>
         <legend>
-          <label htmlFor="message">Mensaje: </label>
+          <label htmlFor="message">{t('AdoptForm', 'message')}</label>
         </legend>
         <textarea
           id="message"
           className="message"
           value={message}
           onChange={e => setMessage(e.target.value)}
-          placeholder="Danos su opinión..."
+          placeholder={t('AdoptForm', 'messagePlaceholder')}
         ></textarea>
       </fieldset>
       <div className="button-group">
         {/** Boton Enviar */}
         <Button type="submit" id="submit" className="submit">
-          Enviar
+          {t('AdoptForm', 'submit')}
         </Button>
         {/** Boton Reiniciar */}
         <Button
@@ -103,11 +105,11 @@ const AdoptForm = ({onSubmit}) => {
           id="reset"
           name="reset"
         >
-          Reiniciar
+          {t('AdoptForm', 'reset')}
         </Button>
         {/** Boton Home */}
         <Button type="button" id="homeButton" className="submit">
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/">{t('AdoptForm', 'home')}</NavLink>
         </Button>
       </div>
     </form>

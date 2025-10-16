@@ -1,10 +1,14 @@
+import Header from '../../components/Header/Header';
 import AdoptForm from '../../components/AdoptForm/AdoptForm';
 
 const AdoptPage = () => {
   return (
-    <div className="container mx-auto px-4 py-8">
-      <AdoptForm />
-    </div>
+    <>
+      <Header />
+      <div className="container mx-auto px-4 py-8">
+        <AdoptForm />
+      </div>
+    </>
   );
 };
 

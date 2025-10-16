@@ -1,0 +1,18 @@
+{
+  "Home": {
+    "title": "Home",
+    "welcome": "Welcome to Bigotes Felices!",
+    "description": "Discover our kitties"
+  },
+  "Favorites": {
+    "title": "Favorites",
+    "heading": "My favorite cats",
+    "emptyTitle": "You don’t have favorites yet",
+    "emptyText": "Explore our cats and add some to your favorites.",
+    "ctaAdopt": "Adopt"
+  },
+  "Adopt": {
+    "title": "Adopt",
+    "cta": "Start the adoption process"
+  }
+}

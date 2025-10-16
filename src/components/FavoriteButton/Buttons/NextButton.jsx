@@ -1,10 +1,16 @@
 // NextButton.jsx
 import React from 'react';
+import Button from '../../Button/Button';
 
 export default function NextButton({ next }) {
+
+  {/** Button Next */}
+
   return (
-    <button onClick={next} aria-label="Siguiente">
-            →
-    </button>
+  
+    <Button onClick={next} ariaLabel="Siguiente">
+       →
+    </Button>
+    
   );
 }

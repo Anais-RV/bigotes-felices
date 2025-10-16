@@ -1,20 +1,47 @@
-import Heart from '../../icons/Heart';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useFavorites } from '../../context/FavoritesContext';
+import HeartWhite from '../../icons/HeartWhite';
 import HeartOutline from '../../icons/HeartOutline';
-import { useState } from 'react';
+import Button from '../Button';
+import './FavoriteButton.css';
 
-const FavoriteButton = () => { 
-  const [isFav, setIsFav] = useState(false);
-  
+export default function FavoriteButton({ cat, className }) {
+  const { addFavorite, removeFavorite, isFavorite } = useFavorites();
+  const [favorite, setFavorite] = useState(() => (cat?.id ? isFavorite(cat.id) : false));
+
+  useEffect(() => {
+    if (!cat?.id) {
+      setFavorite(false);
+      return;
+    }
+    setFavorite(isFavorite(cat.id));
+  }, [cat, isFavorite]);
+
+  const handleToggle = useCallback((e) => {
+    if (e?.stopPropagation) e.stopPropagation();
+    if (!cat?.id) return;
+
+    setFavorite(prev => {
+      const nuevo = !prev;
+      const catData = { ...cat, id: String(cat.id), addedAt: new Date().toISOString() };
+
+      if (nuevo) addFavorite(catData);
+      else removeFavorite(cat.id);
+
+      return nuevo;
+    });
+  }, [cat, addFavorite, removeFavorite]);
+
+  const classes = `favorite-button${favorite ? ' favorite-button--active' : ''} ${className || ''}`;
+
   return (
-    <button
-      className="heart"
-      onClick={() => setIsFav(!isFav)}
-      aria-pressed={isFav}
-      aria-label={isFav ? 'Quitar de favoritos' : 'Añadir a favoritos'}
+    <Button
+      className={classes}
+      aria-pressed={!!favorite}
+      aria-label={favorite ? 'Quitar de favoritos' : 'Añadir a favoritos'}
+      onClick={handleToggle}
     >
-      {isFav ? <Heart /> : <HeartOutline />}
-    </button>
+      {favorite ? <HeartWhite size={20} color="#4f6b2a" /> : <HeartOutline size={20} color="#8CA66E" />}
+    </Button>
   );
-};
-
-export default FavoriteButton;
+}

@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import Pumagato from '../Pumagato/Pumagato';
 import './Header.theme.css';
 import './Header.css';
+import LanguageSelector from '../LangSelector/LangSelector';
 
 export default function Header({ slider, catCard, showHomeButton = false }) {
   const pgSize = 60;
@@ -27,6 +28,7 @@ export default function Header({ slider, catCard, showHomeButton = false }) {
       <header className='top-header' style={{ '--header-size': `${pgSize}px` }}>
         <span className='brand'>Bigotes Felices</span>
         <div className='header-actions'>
+          <LanguageSelector />
           <button className='prueba-rusa'
             onClick={toggleTheme}
             aria-pressed={isDark}
